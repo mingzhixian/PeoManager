@@ -1,0 +1,13 @@
+{
+	"files.associations": {
+		"MULT.C": "cpp",
+		"random": "cpp",
+		"chrono": "cpp",
+		"algorithm": "cpp",
+		"ch6-CBTREE.C": "cpp",
+		"ch6-BTREE-1.C": "cpp",
+		"BTREE.C": "cpp",
+		"3-linkQUEUE.C": "cpp",
+		"ch7-DFS.C": "cpp"
+	}
+}
