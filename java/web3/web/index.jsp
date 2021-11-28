@@ -25,6 +25,6 @@
     }
 </script>
 <body>
-<h1 style="text-align: center">自动跳转</h1>
+<h1 style="text-align: center;color: aliceblue">自动跳转</h1>
 </body>
 </html>
