@@ -190,6 +190,30 @@ int tall(T t)
 		return rdep + 1;
 	}
 }
+int yenum(T t)
+{
+	LL z;
+	push(&z, t); //根
+	int num=0;
+	while (z.ele)
+	{
+		T d = get(&z);
+		if (!d->left&&!d->right)
+		{
+			num++;
+		}
+		
+		if (d->left)
+		{
+			push(&z, d->left);
+		}
+		if (d->right)
+		{
+			push(&z, d->right);
+		}
+	};
+	return num;
+}
 int main(int argc, char const *argv[])
 {
 	T tree = (TT *)malloc(sizeof(TT));
@@ -204,11 +228,14 @@ int main(int argc, char const *argv[])
 	prt4(tree);
 	printf("\n中根序-非递归:");
 	prt5(tree);
-	printf("\n后根序-非递归:");
-	prt6(tree);
+	//printf("\n后根序-非递归:");
+	//prt6(tree);
 	printf("\n层次遍历:");
 	prt7(tree);
-	printf("高度:%d\n", tall(tree));
+	printf("\n高度:%d\n", tall(tree));
 	printf("\n");
+	printf("叶子数:%d\n", yenum(tree));
+	printf("\n");
+
 	return 0;
 }
