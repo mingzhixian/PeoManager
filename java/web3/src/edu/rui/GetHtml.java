@@ -98,4 +98,14 @@ public class GetHtml {
                 "</body>\n" +
                 "</html>";
     }
+
+    public static String GetindexEnd() {
+        return "</div>\n" +
+                "</div>\n" +
+                "<script type=\"text/javascript\" color=\"230,230,250\" opacity='0.7' zIndex=\"-1\" count=\"150\" " +
+                "src=\"../js/canvas-nest.js\"></script>" +
+                "</body>\n" +
+                "\"<script src=\"../js/browspy-browspy.js\"></script>\\n\"" +
+                "</html>";
+    }
 }

@@ -590,7 +590,7 @@ function network_speed() {
 
 function put() {
     var prt = document.getElementById("info");
-    prt.innerHTML = info.device;
+    prt.innerHTML = info.window_screen;
 }
 
 window.onload = function () {
