@@ -19,10 +19,13 @@ public class Filter implements javax.servlet.Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         response.setCharacterEncoding("utf-8");
         request.setCharacterEncoding("utf-8");
+
+        //选出关于登录有关的cookie
         Cookie[] cookies = request.getCookies();
         Cookie logined = null;
         if (cookies != null) {
@@ -33,9 +36,15 @@ public class Filter implements javax.servlet.Filter {
                 }
             }
         }
+
+        //检查如果无登录信息则拦截，else跳转并为cookie续命。
         if (logined == null && !Objects.equals(request.getRequestURI(), "/web3_war_exploded/web/Login")) {
             response.sendRedirect("./Login");
         } else if (logined != null || Objects.equals(request.getRequestURI(), "/web3_war_exploded/web/Login")) {
+            if (logined != null) {  //cookie续命
+                logined.setMaxAge(60 * 10);
+                response.addCookie(logined);
+            }
             filterChain.doFilter(request, response);
         }
     }

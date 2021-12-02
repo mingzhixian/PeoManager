@@ -5,8 +5,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class Download implements Runnable {
-    private String url;
-    private String filePath;
+    private final String url;
+    private final String filePath;
 
     public Download(String url, String filePath) {
         this.url = url;

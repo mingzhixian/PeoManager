@@ -30,7 +30,7 @@ public class Login extends HttpServlet {
                 "                </tr>\n" +
                 "                <tr>\n" +
                 "                    <td><input type=\"submit\" style=\"color: aliceblue;margin:20px 0 0 200px;" +
-                "\" value=\"登录\"></td>\n" +
+                "\" value=\"登录或注册\"></td>\n" +
                 "                </tr>\n" +
                 "            </table>\n" +
                 "        </form>";
@@ -66,6 +66,8 @@ public class Login extends HttpServlet {
         String back = "";
         Cookie logined = null;
         Cookie[] cookies = request.getCookies();
+
+        //找出cookies中登录相关的cookie
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if (Objects.equals(cookie.getName(), "logined")) {
@@ -74,6 +76,8 @@ public class Login extends HttpServlet {
                 }
             }
         }
+
+        //如果当前有登录记录，则登出，else检查数据库。
         if (logined != null) {
             logined.setMaxAge(0);
             response.addCookie(logined);
@@ -82,7 +86,9 @@ public class Login extends HttpServlet {
             try {
                 Count count = DBtool.login("SELECT * FROM count WHERE name = '" + request.getParameter("name") + "';");
                 if (count == null) {
-                    back = "<h1 style=\"color:#edeff2a3;\">账户未注册</h1>";
+                    DBtool.excute("INSERT INTO count (`name`, `password`) VALUES ('" + request.getParameter("name") +
+                            "', '" + request.getParameter("password") + "')");
+                    back = "<h1 style=\"color:#edeff2a3;\">账户已注册，请返回登录。</h1>";
                 } else if (Objects.equals(count.getPassword(), request.getParameter("password"))) {
                     back = "<h1 style=\"color:#edeff2a3;\">登录成功</h1>";
                     logined = new Cookie("logined", URLEncoder.encode(request.getParameter("name"), StandardCharsets.UTF_8));
