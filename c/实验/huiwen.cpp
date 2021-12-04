@@ -1,27 +1,55 @@
 #include <stdio.h>
-#include "zhan.h"
 #include "dui.h"
 DUI huiwen(int a, int b)
 {
 	DUI final;
 	while (a <= b)
 	{
-		int x=a/100;
-		int y=a-100*x;
-		if (0<y<13)
+		int x = a / 100;
+		int tmp = x %10;
+		x=x/10;
+		x = tmp*10;
+		int y = a % 100;
+		tmp=y%10;
+		y=y/10;
+		y=tmp*10+y;
+
+		if (0 < y < 13)
 		{
-			if (y==2)
+			if (y == 2)
 			{
-				int z=a/4;
-				z=29-(a-4*z);
-				if (0<x<z)
+				int z = a % 4;
+				if (z)
 				{
+					z = 28;
 				}
-				
+				else
+				{
+					z = 29;
+				}
+				if (0 < x < z)
+				{
+					duipush(&final, a);
+					continue;
+				}
 			}
-			
+			else if (y == 4 || y == 6 || y == 9 || y == 11)
+			{
+				if (0 < x < 31)
+				{
+					duipush(&final, a);
+					continue;
+				}
+			}
+			else
+			{
+				if (0 < x < 32)
+				{
+					duipush(&final, a);
+					continue;
+				}
+			}
 		}
-		
 		a++;
 	}
 	return final;
