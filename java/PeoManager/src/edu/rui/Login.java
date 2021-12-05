@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.Objects;
 
@@ -91,7 +93,7 @@ public class Login extends HttpServlet {
                     }
                 } else if (Objects.equals(count.getPassword(), request.getParameter("password"))) {
                     back = "<h1 style=\"color:#edeff2a3;\">登录成功</h1>";
-                    logined = new Cookie("logined", request.getParameter("name"));
+                    logined = new Cookie("logined", URLEncoder.encode(request.getParameter("name"), StandardCharsets.UTF_8));
                     logined.setMaxAge(60 * 10);
                     response.addCookie(logined);
                 } else {

@@ -6,6 +6,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.Objects;
 
@@ -47,16 +49,19 @@ public class Filter implements javax.servlet.Filter {
                 response.addCookie(logined);
 
                 try {                      //权限检查
-                    Count count = DBtool.login("SELECT * FROM count WHERE name = '" + logined.getValue() + "';");
+                    Count count = DBtool.login("SELECT * FROM count WHERE name = '" +
+                            URLDecoder.decode(logined.getValue(), StandardCharsets.UTF_8) + "';");
                     if (Objects.equals(request.getRequestURI(), "/PeoManager/web/Add") && count.getAdmin() == 0 || Objects.equals(request.getRequestURI(), "/PeoManager/web/Update") && count.getAdmin() == 0) {
                         response.getWriter().write(GetHtml.GetaddHead("人员管理") + "<h1 style=\"color:#edeff2a3\">权限不足</h1>" + GetHtml.GetaddEnd());
+                    } else {
+                        filterChain.doFilter(request, response);
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+            } else {
+                filterChain.doFilter(request, response);
             }
-
-            filterChain.doFilter(request, response);
         }
     }
 
