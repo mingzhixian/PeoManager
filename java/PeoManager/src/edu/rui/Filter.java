@@ -6,6 +6,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Objects;
 
 @WebFilter(filterName = "Filter", urlPatterns = "/web/*")
@@ -41,10 +42,20 @@ public class Filter implements javax.servlet.Filter {
         if (logined == null && !Objects.equals(request.getRequestURI(), "/PeoManager/web/Login")) {
             response.sendRedirect("./Login");
         } else if (logined != null || Objects.equals(request.getRequestURI(), "/PeoManager/web/Login")) {
-            if (logined != null) {  //cookie续命
-                logined.setMaxAge(60 * 10);
+            if (logined != null) {
+                logined.setMaxAge(60 * 10);   //cookie续命
                 response.addCookie(logined);
+
+                try {                      //权限检查
+                    Count count = DBtool.login("SELECT * FROM count WHERE name = '" + logined.getValue() + "';");
+                    if (Objects.equals(request.getRequestURI(), "/PeoManager/web/Add") && count.getAdmin() == 0 || Objects.equals(request.getRequestURI(), "/PeoManager/web/Update") && count.getAdmin() == 0) {
+                        response.getWriter().write(GetHtml.GetaddHead("人员管理") + "<h1 style=\"color:#edeff2a3\">权限不足</h1>" + GetHtml.GetaddEnd());
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
+
             filterChain.doFilter(request, response);
         }
     }

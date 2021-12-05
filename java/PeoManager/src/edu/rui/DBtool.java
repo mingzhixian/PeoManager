@@ -8,7 +8,7 @@ import java.util.List;
 @WebServlet(name = "DBtool", value = "/web/DBtool")
 public class DBtool {
     private static final String DB_DRIVER = "org.sqlite.JDBC";
-    private static final String DB_URL = "jdbc:sqlite:/home/kic/文档/code/java/PeoManager/PeoManager.db";
+    private static final String DB_URL = "jdbc:sqlite:/home/kic/DB/PeoManager.db";
 
     public static void excute(String str) throws SQLException {
         try {
@@ -53,7 +53,7 @@ public class DBtool {
             try (Statement statement = connection.createStatement()) {
                 ResultSet one = statement.executeQuery(sql);
                 while (one.next()) {
-                    count = new Count(one.getString("name"), one.getString("password"));
+                    count = new Count(one.getString("name"), one.getString("password"), one.getInt("admin"));
                 }
             }
         }

@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class Add extends HttpServlet {
 
     private static final String INSERT_TEMPLATE =
-            "INSERT INTO web (`name`, `id`) " +
+            "INSERT INTO peo (`name`, `id`) " +
                     "VALUES ('%s', '%s')";
 
     @Override
@@ -52,7 +52,7 @@ public class Add extends HttpServlet {
         }
 
         String html = GetHtml.GetaddHead("添加记录") +
-                "<h1 style=\"color=\"aliceblue\"\">添加成功</h1>" + GetHtml.GetaddEnd();
+                "<h1 style=\"color:#edeff2a3\">添加成功</h1>" + GetHtml.GetaddEnd();
         response.getWriter().write(html);
     }
 }

@@ -6,8 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.Objects;
 
@@ -84,13 +82,16 @@ public class Login extends HttpServlet {
         } else {
             try {
                 Count count = DBtool.login("SELECT * FROM count WHERE name = '" + request.getParameter("name") + "';");
-                if (count == null) {
-                    DBtool.excute("INSERT INTO count (`name`, `password`) VALUES ('" + request.getParameter("name") +
-                            "', '" + request.getParameter("password") + "')");
-                    back = "<h1 style=\"color:#edeff2a3;\">账户已注册，请返回登录。</h1>";
+                if (count == null) {   //找不到便注册自动新用户
+                    if (Objects.equals(request.getParameter("name"), "") || Objects.equals(request.getParameter("password"), "")) {
+                        back = "<h1 style=\"color:#edeff2a3;\">用户名或密码不应为空。</h1>";
+                    } else {
+                        DBtool.excute("INSERT INTO count (`name`, `password`) VALUES ('" + request.getParameter("name") + "', '" + request.getParameter("password") + "')");
+                        back = "<h1 style=\"color:#edeff2a3;\">账户已注册，请返回登录。</h1>";
+                    }
                 } else if (Objects.equals(count.getPassword(), request.getParameter("password"))) {
                     back = "<h1 style=\"color:#edeff2a3;\">登录成功</h1>";
-                    logined = new Cookie("logined", URLEncoder.encode(request.getParameter("name"), StandardCharsets.UTF_8));
+                    logined = new Cookie("logined", request.getParameter("name"));
                     logined.setMaxAge(60 * 10);
                     response.addCookie(logined);
                 } else {

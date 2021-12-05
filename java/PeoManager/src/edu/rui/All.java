@@ -34,7 +34,7 @@ public class All extends HttpServlet {
         stringBuilder.append(GetHtml.GetaddHead("所有记录"));
 
         try {
-            List<Peo> peos = DBtool.all("SELECT * FROM web;");
+            List<Peo> peos = DBtool.all("SELECT * FROM peo;");
             for (Peo peo : peos) {
                 stringBuilder.append(String.format(str, peo.getName(), peo.getId()));
             }

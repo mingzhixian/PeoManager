@@ -12,9 +12,9 @@ import java.sql.SQLException;
 public class Update extends HttpServlet {
 
     private static final String UPDATE_TEMPLATE =
-            "UPDATE web SET name ='%s' WHERE id ='%s'";
+            "UPDATE peo SET name ='%s' WHERE id ='%s'";
     private static final String DELETE_TEMPLATE =
-            "DELETE FROM web WHERE id ='%s'";
+            "DELETE FROM peo WHERE id ='%s'";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,7 +27,7 @@ public class Update extends HttpServlet {
         }
 
         String html = GetHtml.GetaddHead("删除记录") +
-                "<h1 style=\"color=\"aliceblue\"\">删除成功</h1>" + GetHtml.GetaddEnd();
+                "<h1 style=\"color:#edeff2a3\">删除成功</h1>" + GetHtml.GetaddEnd();
         response.getWriter().write(html);
     }
 
@@ -42,7 +42,7 @@ public class Update extends HttpServlet {
         }
 
         String html = GetHtml.GetaddHead("修改记录") +
-                "<h1 style=\"color=\"aliceblue\"\">更改成功</h1>" + GetHtml.GetaddEnd();
+                "<h1 style=\"color:#edeff2a3\">更改成功</h1>" + GetHtml.GetaddEnd();
         response.getWriter().write(html);
     }
 }

@@ -14,18 +14,21 @@
 <style>
     * {
         box-sizing: border-box;
+        margin: 0;
+        padding: 0;
     }
 
     body {
         background-color: #181a1b;
     }
-</style>
-<script>
-    window.onload = function () {
-        open("./web/Index")
+
+    h1 {
+        text-align: center;
+        color: aliceblue;
+        padding-top: 200px;
     }
-</script>
+</style>
 <body>
-<h1 style="text-align: center;color: aliceblue">自动跳转</h1>
+<h1>欢迎<br>本网站为本人学习java时编写的人员管理系统<br><a href="./web/Index">点击此处进入</a></h1>
 </body>
 </html>

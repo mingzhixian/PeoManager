@@ -88,13 +88,13 @@ public class Find extends HttpServlet {
     private String findstr(String name, String id) {
         String findstr = "";
         if (Objects.equals(name, "") && !Objects.equals(id, "")) {
-            findstr = "SELECT * FROM web WHERE id LIKE '%" + id + "%';";
+            findstr = "SELECT * FROM peo WHERE id LIKE '%" + id + "%';";
         } else if (!Objects.equals(name, "") && Objects.equals(id, "")) {
-            findstr = "SELECT * FROM web WHERE name LIKE '%" + name + "%';";
+            findstr = "SELECT * FROM peo WHERE name LIKE '%" + name + "%';";
         } else if (Objects.equals(name, "") && Objects.equals(id, "")) {
-            findstr = "SELECT * FROM web ;";
+            findstr = "SELECT * FROM peo ;";
         } else {
-            findstr = "SELECT * FROM web WHERE name LIKE '%" + name + "%' and id LIKE '%" + id + "%';";
+            findstr = "SELECT * FROM peo WHERE name LIKE '%" + name + "%' and id LIKE '%" + id + "%';";
         }
         return findstr;
     }
