@@ -69,9 +69,11 @@ public class Find extends HttpServlet {
 
         StringBuilder stringBuilder = new StringBuilder();
 
+        //返回网页框架
         stringBuilder.append(GetHtml.GetaddHead("搜索记录"));
         String findstr = findstr(request.getParameter("name"), request.getParameter("id"));
 
+        //数据库查询，想返回值中增加记录。
         try {
             List<Peo> peos = DBtool.all(findstr);
             for (Peo peo : peos) {
@@ -86,6 +88,7 @@ public class Find extends HttpServlet {
     }
 
     private String findstr(String name, String id) {
+        //根据不同查找类型（只限制姓名、只限制id、均进行限制）返回不同数据库查询语句。
         String findstr = "";
         if (Objects.equals(name, "") && !Objects.equals(id, "")) {
             findstr = "SELECT * FROM peo WHERE id LIKE '%" + id + "%';";

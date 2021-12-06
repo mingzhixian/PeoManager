@@ -14,6 +14,7 @@ import static java.lang.String.valueOf;
 public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        //str1为登录界面，str2为登出界面
         String str1 = "<form method=\"post\" action=\"Login\">\n" +
                 "            <table>\n" +
                 "                <tr>\n" +
@@ -47,8 +48,9 @@ public class Login extends HttpServlet {
                 "                </tr>\n" +
                 "            </table>\n" +
                 "        </form>";
-        Cookie logined = null;
+
         //寻找cookie记录
+        Cookie logined = null;
         if (request.getCookies() != null) {
             Cookie[] cookies = request.getCookies();
             for (Cookie cookie : cookies) {
@@ -84,7 +86,7 @@ public class Login extends HttpServlet {
             }
         }
 
-        //如果当前有登录记录，则登出，else检测验证码然后检查数据库。
+        //如果当前有登录记录，则登出，else检测验证码然后再检查数据库，数据库没有记录则注册，数据库有则检测密码。
         if (logined != null) {
             logined.setMaxAge(0);
             response.addCookie(logined);

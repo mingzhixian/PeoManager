@@ -10,12 +10,14 @@ import java.sql.SQLException;
 
 @WebServlet(name = "Update", value = "/web/Update")
 public class Update extends HttpServlet {
-
+    //删除与修改的数据库语句。
     private static final String UPDATE_TEMPLATE =
             "UPDATE peo SET name ='%s' WHERE id ='%s'";
     private static final String DELETE_TEMPLATE =
             "DELETE FROM peo WHERE id ='%s'";
 
+
+    //为减少运行的servlet程序，删除与修改放在同一个servlet程序中，删除仅需传递id值便可所以使用get,修改须传递id值以及修改后的名字，使用post。
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

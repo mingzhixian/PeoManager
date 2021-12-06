@@ -31,8 +31,9 @@ public class Filter implements javax.servlet.Filter {
         //选出关于登录有关的cookie
         Cookie[] cookies = request.getCookies();
         Cookie logined = null;
+        //查找登录用户的cookie
         if (cookies != null) {
-            for (Cookie cookie : cookies) {  //查找登录用户的cookie
+            for (Cookie cookie : cookies) {
                 if (Objects.equals(cookie.getName(), "logined")) {
                     logined = cookie;
                     break;
@@ -40,15 +41,17 @@ public class Filter implements javax.servlet.Filter {
             }
         }
 
-        //检查如果无登录信息则拦截，else跳转并为cookie续命。
+        //检查如果无登录信息则拦截到登录界面，else检查权限跳转并为cookie续命（当目的为登录界面时不进行拦截）。
         if (logined == null && !Objects.equals(request.getRequestURI(), "/PeoManager/web/Login")) {
             response.sendRedirect("./Login");
         } else if (logined != null || Objects.equals(request.getRequestURI(), "/PeoManager/web/Login")) {
             if (logined != null) {
-                logined.setMaxAge(60 * 10);   //cookie续命
+                //cookie续命
+                logined.setMaxAge(60 * 10);
                 response.addCookie(logined);
 
-                try {                      //权限检查
+                //权限检查
+                try {                      
                     Count count = DBtool.login("SELECT * FROM count WHERE name = '" +
                             URLDecoder.decode(logined.getValue(), StandardCharsets.UTF_8) + "';");
                     if (Objects.equals(request.getRequestURI(), "/PeoManager/web/Add") && count.getAdmin() == 0 || Objects.equals(request.getRequestURI(), "/PeoManager/web/Update") && count.getAdmin() == 0) {
@@ -59,6 +62,7 @@ public class Filter implements javax.servlet.Filter {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+
             } else {
                 filterChain.doFilter(request, response);
             }
