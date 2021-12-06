@@ -77,6 +77,11 @@ public class GetHtml {
                 "            color: aliceblue;\n" +
                 "        }\n" +
                 "    </style>\n" +
+                "    <script>\n" +
+                "    function checkcodeupdate() {\n" +
+                "        document.getElementById(\"checkcodepic\").src = \".././CheckCodeBack\" + '?' + new Date();\n" +
+                "    }\n" +
+                "    </script>" +
                 "</head>\n" +
                 "<body>\n" +
                 "<div style=\"text-align: center;margin-top: 50px\">\n" +
