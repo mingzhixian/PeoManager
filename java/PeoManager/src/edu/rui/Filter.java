@@ -51,7 +51,7 @@ public class Filter implements javax.servlet.Filter {
                 response.addCookie(logined);
 
                 //权限检查
-                try {                      
+                try {
                     Count count = DBtool.login("SELECT * FROM count WHERE name = '" +
                             URLDecoder.decode(logined.getValue(), StandardCharsets.UTF_8) + "';");
                     if (Objects.equals(request.getRequestURI(), "/PeoManager/web/Add") && count.getAdmin() == 0 || Objects.equals(request.getRequestURI(), "/PeoManager/web/Update") && count.getAdmin() == 0) {
