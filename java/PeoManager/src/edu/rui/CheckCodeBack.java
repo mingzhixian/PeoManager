@@ -13,7 +13,6 @@ public class CheckCodeBack extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession(true);
-
         CheckCodeCreate coder = new CheckCodeCreate();
         session.setAttribute("CheckCode", coder.getCodeString());
         response.setContentType("image/png");

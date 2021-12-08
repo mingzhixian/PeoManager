@@ -12,13 +12,12 @@ public class CheckCodeCreate {
 
     private int width = 120;    // 定义图片的width
     private int height = 30;    // 定义图片的height
-    private int codeCount = 5;    // 定义图片上显示验证码的个数
-    private final int fontHeight = 22;   //图片字体大小
+    private int codeCount = 4;    // 定义图片上显示验证码的个数
+    private final int fontHeight = 26;   //图片字体大小
     private BufferedImage codeImage = null;   //图片
     private String codeString = null;    //图片包含字母
     private final char[] codeSequence = {
-            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
-            'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
     public CheckCodeCreate() {
         this.createCode();
@@ -66,8 +65,8 @@ public class CheckCodeCreate {
             randomCode.append(code);
         }
 
-        // 随机产生60条干扰线，使图象中的认证码不易被其它程序探测到。
-        for (int i = 0; i < 60; i++) {
+        // 随机产生50条干扰线，使图象中的认证码不易被其它程序探测到。
+        for (int i = 0; i < 50; i++) {
             int x1 = random.nextInt(width);
             int y1 = random.nextInt(height);
             int x2 = random.nextInt(width / 4);
