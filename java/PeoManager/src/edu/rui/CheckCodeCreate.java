@@ -11,9 +11,9 @@ import java.util.Random;
 public class CheckCodeCreate {
 
     private int width = 120;    // 定义图片的width
-    private int height = 30;    // 定义图片的height
+    private int height = 34;    // 定义图片的height
     private int codeCount = 4;    // 定义图片上显示验证码的个数
-    private final int fontHeight = 26;   //图片字体大小
+    private final int fontHeight = 27;   //图片字体大小
     private BufferedImage codeImage = null;   //图片
     private String codeString = null;    //图片包含字母
     private final char[] codeSequence = {
