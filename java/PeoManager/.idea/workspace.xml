@@ -3,7 +3,6 @@
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="PeoManager" />
-      <artifact name="PeoManager" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
