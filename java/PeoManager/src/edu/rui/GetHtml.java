@@ -42,7 +42,7 @@ public class GetHtml {
                 "\n" +
                 "        .mod {\n" +
                 "            display: inline-block;\n" +
-                "            width: 180px;\n" +
+                "            width: 198px;\n" +
                 "            height: 60px;\n" +
                 "            border-radius: 16px;\n" +
                 "            background-color: #527a7a;\n" +
@@ -90,10 +90,10 @@ public class GetHtml {
                 set + "</a></h1>\n" +
                 "</div>\n" +
                 "<div class=\"site\">\n" +
-                "    <a href=\"Add\" class=\"mod\">添加记录</a>\n" +
-                "    <a href=\"Find\" class=\"mod\">搜索记录</a>\n" +
-                "    <a href=\"All\" class=\"mod\">所有记录</a>\n" +
-                "    <a href=\"Login\" class=\"mod\">后台登录</a>\n" +
+                "    <a href=\"Add\" class=\"mod\"><img width=\"30px\" src=\"../img/添加用户.svg\">添加记录</a>\n" +
+                "    <a href=\"Find\" class=\"mod\"><img width=\"30px\" src=\"../img/查找用户.svg\">搜索记录</a>\n" +
+                "    <a href=\"All\" class=\"mod\"><img width=\"30px\" src=\"../img/所有用户.svg\">所有记录</a>\n" +
+                "    <a href=\"Login\" class=\"mod\"><img width=\"30px\" src=\"../img/登录用户.svg\">后台登录</a>\n" +
                 "    <div>\n";
     }
 
