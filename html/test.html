@@ -2,60 +2,61 @@
 
 <head>
 	<title>shs</title>
-	<style>
-		.scrollbar {
-			margin-left: 30px;
-			float: left;
-			height: 300px;
-			width: 65px;
-			background: #F5F5F5;
-			overflow-y: scroll;
-			margin-bottom: 25px;
-		}
-
-		.force-overflow {
-			min-height: 450px;
-			min-width: 500px;
-		}
-
-		#wrapper {
-			text-align: center;
-			width: 500px;
-			margin: auto;
-		}
-
-		#style-1::-webkit-scrollbar-track {
-			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-			border-radius: 10px;
-			background-color: #F5F5F5;
-		}
-
-		#style-1::-webkit-scrollbar {
-			width: 12px;
-			background-color: #F5F5F5;
-		}
-
-		#style-1::-webkit-scrollbar-thumb {
-			border-radius: 10px;
-			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-			background-color: #555;
-		}
-	</style>
+	<script src="js/anime.min.js"></script>
 </head>
 
 <body>
 	<div id="wrapper">
-		<div class="scrollbar" id="style-1">
-			<div class="force-overflow"></div>
-		</div>
-		win系统的问题，命令行默认为gbk,所以win程序默认编写的编码是gbk,但是服务器软件、浏览器、linux都是默认utf-8。
-		省资源、开源、软件不要钱、系统不要钱、没有图形化
-		linux没有图形化界面可以活，
-		个人版都有桌面
-		开源软件赚钱难，所以linux软件少，linux不好用
-		qq、微信都没有，爱奇伊、腾讯视频
-		版本太多，因为linux开源，所以有很多人改，所以linux有很多不同版本，适配难、kde、dde、xfce、
+		<form method="post" action="All" class="one">
+			<table>
+				<tr>
+					<td>
+						名字
+						<input type="text" name="name" disabled value="郭晓瑞">
+					</td>
+					<td>
+						学号
+						<input type="text" name="id" disabled value="222020321072029">
+					</td>
+				</tr>
+			</table>
+		</form>
+		<form method="post" action="All" class="one">
+			<table>
+				<tr>
+					<td>
+						名字
+						<input type="text" name="name" disabled value="鸣之弦">
+					</td>
+					<td>
+						学号
+						<input type="text" name="id" disabled value="22222222222222222">
+					</td>
+				</tr>
+			</table>
+		</form>
+		<form method="post" action="All" class="one">
+			<table>
+				<tr>
+					<td>
+						名字
+						<input type="text" name="name" disabled value="瑞瑞瑞">
+					</td>
+					<td>
+						学号
+						<input type="text" name="id" disabled value="333">
+					</td>
+				</tr>
+			</table>
+		</form>
 	</div>
+	<script>
+		var pop = anime({
+			targets: '.one',
+			translateX: 270,
+			delay: anime.stagger(100) // 每个元素的延迟增加100毫秒。
+		});
+	</script>
 </body>
 
 </html>

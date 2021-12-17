@@ -41,7 +41,7 @@ public class Find extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String str = "<form method=\"post\" action=\"Update\">\n" +
+        String str = "<form method=\"post\" action=\"Update\" class=\"one\">\n" +
                 "            <table>\n" +
                 "                <tr>\n" +
                 "                    <td>\n" +

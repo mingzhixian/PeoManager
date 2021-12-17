@@ -13,7 +13,7 @@ import java.util.List;
 public class All extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String str = "<form method=\"post\" action=\"All\">\n" +
+        String str = "<form method=\"post\" action=\"All\" class=\"one\">\n" +
                 "            <table>\n" +
                 "                <tr>\n" +
                 "                    <td>\n" +
