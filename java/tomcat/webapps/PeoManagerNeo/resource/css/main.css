@@ -1,0 +1,76 @@
+/*@font-face {*/
+/*    font-family: awan;*/
+/*    src: url("../font/SysFont-Medium.ttf");*/
+/*}*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #181a1b;
+    font-family: awan, ui-sans-serif;
+}
+
+.hello {
+    text-align: center;
+    color: aliceblue;
+}
+
+#hellodiv {
+    margin-top: -220px;
+}
+
+.mod {
+    width: 1000px;
+    padding: 50px 0 50px 0;
+    border-radius: 40px;
+    background-color: #35393b;
+    margin: auto;
+}
+
+#logindiv {
+    background-color: #527a7a;
+    width: 200px;
+    padding: 10px 0 10px 0;
+    border-radius: 16px;
+    color: aliceblue;
+}
+
+#mainhead {
+    text-align: center;
+}
+
+#mianheadleft {
+    background-color: #696969;
+    width: 600px;
+    padding: 10px 0 10px 0;
+    border-radius: 16px;
+    color: aliceblue;
+    font-size: 68px;
+}
+
+#mianheadright {
+    border-radius: 10px;
+    width: 68px;
+    height: 68px;
+    margin: 3px 0 0 80px;
+}
+
+#mainbody {
+    text-align: center;
+}
+
+.opentionmod {
+    display: inline-block;
+    background-color: #527a7a;
+    width: 320px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 0 10px 0;
+    border-radius: 26px;
+    color: aliceblue;
+    font-size: 48px;
+    text-align: center;
+}

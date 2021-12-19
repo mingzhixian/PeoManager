@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>PeoManagerNeo</title>
+    <meta charset="UTF-8">
+    <link href="resource/img/manager.svg" rel="shortcut icon">
+    <link href="resource/css/main.css" rel="stylesheet">
+    <script src="resource/js/anime.min.js"></script>
+</head>
+<body>
+<div class="mod">
+    <div id="logindiv">
+        <form method="post" action="Login" id="loginfrom">
+            账户<input type="text" name="name" value=""><br>
+            密码<input type="password" name="password" value=""><br>
+            验证码<input type="text" name="checkcode" value="">
+            <img id="checkcodepic" onclick="checkcodeupdate()" src="../CheckCodeBack"/><br>
+            <input type="submit" value="登录">
+        </form>
+    </div>
+</div>
+</body>
+<script color="230,230,250" opacity='0.7' zIndex="-1" count="150" src="resource/js/canvas-nest.js"></script>
+<script src="resource/js/animation.js" rel=\"script\"></script>
+</html>

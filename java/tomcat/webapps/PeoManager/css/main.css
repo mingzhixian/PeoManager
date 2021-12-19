@@ -10,11 +10,12 @@ body {
 
 #tiltediv {
     text-align: center;
-    height: 180px;
+    height: 130px;
+    margin-top: 50px
 }
 
 .tilte {
-    font-size: 10px;
+    font-size: 50px
 }
 
 #site {
@@ -32,7 +33,6 @@ body {
     height: 60px;
     border-radius: 16px;
     background-color: #527a7a;
-    margin: auto;
     font-size: 36px;
     padding-top: 6px;
     color: aliceblue;
@@ -59,10 +59,13 @@ td {
     color: aliceblue;
 }
 
-#hello {
+#hellodiv {
+    margin-top: -220px;
+}
+
+.hello {
     text-align: center;
     color: aliceblue;
-    padding-top: 200px;
 }
 
 input {
