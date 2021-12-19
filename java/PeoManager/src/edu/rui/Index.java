@@ -11,7 +11,6 @@ import java.io.IOException;
 public class Index extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setCharacterEncoding("utf-8");
         String string = GetHtml.GetaddHead("人员管理") +
                 GetHtml.GetaddEnd();
         response.getWriter().write(string);
