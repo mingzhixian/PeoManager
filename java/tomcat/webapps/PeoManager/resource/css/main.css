@@ -45,7 +45,7 @@ body {
     text-decoration: none;
 }
 
-form {
+.form {
     margin-top: 40px;
     margin-left: 140px;
     width: 720px;
@@ -58,7 +58,7 @@ form {
     margin-left: -140px;
 }
 
-td {
+.form td {
     display: inline-block;
     font-size: 34px;
     padding-right: 16px;
@@ -74,7 +74,7 @@ td {
     color: aliceblue;
 }
 
-input {
+.form input {
     display: inline-block;
     width: 222px;
     height: 40px;
@@ -82,4 +82,17 @@ input {
     background-color: #181a1b;
     color: aliceblue;
     padding-left: 8px;
+}
+
+.form span {
+    display: inline-block;
+    font-size: 28px;
+    width: 222px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #181a1b;
+    color: aliceblue;
+    padding-left: 8px;
+    margin: 20px 0 0 200px;
+    text-align: center;
 }
