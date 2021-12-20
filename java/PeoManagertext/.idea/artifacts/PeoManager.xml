@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="PeoManager">
+    <output-path>$PROJECT_DIR$/out/artifacts/PeoManager</output-path>
+    <root id="archive" name="PeoManager.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="PeoManager" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/../sqlite-jdbc-3.36.0.3.jar" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="PeoManager/web/Web" />
+    </root>
+  </artifact>
+</component>
