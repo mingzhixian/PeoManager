@@ -26,7 +26,7 @@ public class Cache implements javax.servlet.Filter {
         request.setCharacterEncoding("utf-8");
         Date d = new Date();
         Long time;
-        if (Objects.equals(request.getRequestURI(), "/PeoManager/resource/font/SysFont-Medium.ttf")) {
+        if (Objects.equals(request.getRequestURI(), "/PeoManager/resource/font/font.subset.woff2")) {
             response.setHeader("Cache-Control", "max-age=60*60*24*100");
         } else {
             response.setHeader("Cache-Control", "max-age=60*60*24");

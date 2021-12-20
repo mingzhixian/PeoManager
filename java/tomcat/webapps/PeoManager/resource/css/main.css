@@ -1,6 +1,6 @@
 @font-face {
     font-family: awan;
-    src: url("../font/SysFont-Medium.ttf");
+    src: url("../font/font.subset.woff2");
 }
 
 * {
