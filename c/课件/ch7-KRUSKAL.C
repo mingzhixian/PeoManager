@@ -34,4 +34,4 @@ int select(int s[],int v)
 /*  for(i=1;i<=10;i++)
   scanf("%d,%d,%d",&g[i].bv,&g[i].tv,&g[i].w);*/
   kruskal(g,n,e);
-  }
+  }

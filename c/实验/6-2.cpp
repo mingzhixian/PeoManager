@@ -1,4 +1,5 @@
 #include <stdio.h>
+//广度优先算法
 int main(int argc, char const *argv[])
 {
 	int c[8][8] = {{0, 1, 1, 0, 0, 0, 0, 0},

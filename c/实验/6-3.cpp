@@ -1,4 +1,5 @@
 #include <stdio.h>
+//深度优先遍历
 typedef struct TT
 {
 	int sp[10];
@@ -32,7 +33,7 @@ int main(int argc, char const *argv[])
 	while (stk.top >= 0)
 	{
 		e = pop(&stk);
-		printf("%d ->", e);
+		printf("%d ->", e+1);
 		for (i = 0; i < 8; ++i)
 			if (f[i] == 0 && c[e][i] > 0 && c[e][i] < 100)
 			{

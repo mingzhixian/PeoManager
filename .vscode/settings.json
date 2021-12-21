@@ -8,6 +8,9 @@
 		"ch6-BTREE-1.C": "cpp",
 		"BTREE.C": "cpp",
 		"3-linkQUEUE.C": "cpp",
-		"ch7-DFS.C": "cpp"
+		"ch7-DFS.C": "cpp",
+		"ch7-PRIM.C": "cpp",
+		"ch7-KRUSKAL.C": "cpp",
+		"ch7-SHORTDISJ.C": "cpp"
 	}
 }
