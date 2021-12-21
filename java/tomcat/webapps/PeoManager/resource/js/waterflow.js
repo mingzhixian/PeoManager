@@ -1,13 +1,51 @@
 var now = 0;
 
-window.onscroll = function () {
+//新的scroll检测方法
+//防抖函数
+var timeout = null;
+
+function antishake() {
+    if (timeout !== null) clearTimeout(timeout);
+    timeout = setTimeout(requesthtml, 500);
+}
+
+//检测是否到达底部
+function IsBottom() {
     var scrollTop = document.body.scrollTop;
     var scrollHeight = document.documentElement.scrollHeight;
     var windowsHeight = window.innerHeight;
-    if (scrollHeight - scrollTop - windowsHeight < 80) {
-        requesthtml();
+    if (scrollHeight - scrollTop - windowsHeight < 60) {
+        antishake();
     }
 }
+
+//使用 rAF（requestAnimationFrame）触发滚动事件
+var ticking = false; // rAF 触发锁
+
+function onScroll() {
+    if (!ticking) {
+        requestAnimationFrame(realFun);
+        ticking = true;
+    }
+}
+
+function realFun() {
+    IsBottom();
+    ticking = false;
+}
+
+// 滚动事件监听
+window.addEventListener('scroll', onScroll, false);
+
+//旧的scroll检测方法
+// window.onscroll = function () {
+//     var scrollTop = document.body.scrollTop;
+//     var scrollHeight = document.documentElement.scrollHeight;
+//     var windowsHeight = window.innerHeight;
+//     if (scrollHeight - scrollTop - windowsHeight < 80) {
+//         requesthtml();
+//     }
+// }
 
 function requesthtml() {
     now += 10;
