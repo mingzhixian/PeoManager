@@ -1,4 +1,5 @@
 var now = 0;
+var over = 0;
 
 //新的scroll检测方法
 //防抖函数
@@ -6,7 +7,11 @@ var timeout = null;
 
 function antishake() {
     if (timeout !== null) clearTimeout(timeout);
-    timeout = setTimeout(requesthtml, 500);
+    if (!over) {
+        timeout = setTimeout(requesthtml, 300);
+    } else {
+        window.removeEventListener('scroll', onScroll);
+    }
 }
 
 //检测是否到达底部
@@ -36,16 +41,6 @@ function realFun() {
 
 // 滚动事件监听
 window.addEventListener('scroll', onScroll, false);
-
-//旧的scroll检测方法
-// window.onscroll = function () {
-//     var scrollTop = document.body.scrollTop;
-//     var scrollHeight = document.documentElement.scrollHeight;
-//     var windowsHeight = window.innerHeight;
-//     if (scrollHeight - scrollTop - windowsHeight < 80) {
-//         requesthtml();
-//     }
-// }
 
 function requesthtml() {
     now += 10;
@@ -77,10 +72,14 @@ function requesthtml() {
 
 //回调函数
 function domupdate(output) {
-    var formmod = document.getElementById("formmod");
-    var str = formmod.innerHTML;
-    str = str + output;
-    formmod.innerHTML = str;
+    if (output === "") {
+        over = 1;
+    } else {
+        var formmod = document.getElementById("formmod");
+        var str = formmod.innerHTML;
+        str = str + output;
+        formmod.innerHTML = str;
+    }
 }
 
 function GetUrlRelativePath() {
