@@ -47,11 +47,17 @@ body {
 
 form {
     margin-top: 40px;
-    margin-left: 140px;
     width: 720px;
+    margin-left: 140px;
     padding: 30px 0 30px 36px;
-    background-color: dimgrey;
+    background-color: #5c5c5c;
     border-radius: 28px;
+    transition: background-color 500ms, width 500ms;
+}
+
+form:hover {
+    width: 728px;
+    background-color: dimgrey;
 }
 
 .one {
