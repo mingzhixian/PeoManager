@@ -20,17 +20,17 @@ public class Login extends HttpServlet {
                 "                <tr>\n" +
                 "                    <td>\n" +
                 "                        账户\n" +
-                "                        <input type=\"text\" name=\"name\" value=\"\">\n" +
+                "                        <input type=\"text\" name=\"name\" value=\"\" required>\n" +
                 "                    </td>\n" +
                 "                    <td>\n" +
                 "                        密码\n" +
-                "                        <input type=\"password\" name=\"password\"   value=\"\">\n" +
+                "                        <input type=\"password\" name=\"password\"   value=\"\" required>\n" +
                 "                    </td>\n" +
                 "                </tr>\n" +
                 "                <tr>\n" +
                 "                    <td>\n" +
                 "                        验证码\n" +
-                "                        <input type=\"text\" name=\"checkcode\"   value=\"\">\n" +
+                "                        <input type=\"text\" name=\"checkcode\"   value=\"\" required>\n" +
                 "                    </td>\n" +
                 "                    <td><img id=\"checkcodepic\"  onclick=\"checkcodeupdate()\" src=\"../CheckCodeBack\"/></td>\n" +
                 "                </tr>\n" +
