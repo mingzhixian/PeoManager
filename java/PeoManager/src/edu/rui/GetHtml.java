@@ -60,6 +60,7 @@ public class GetHtml {
                 "<script src=\"../resource/js/animation.js\" rel=\"script\"></script>" +
                 "<script src=\"https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js\"></script>" +
                 "<script src=\"../resource/js/waterflow.js\" rel=\"script\"></script>" +
+                "<script src=\"../resource/js/main.js\" rel=\"script\"></script>" +
                 "<script type=\"text/javascript\" color=\"230,230,250\" opacity='0.7' zIndex=\"-1\" count=\"150\" " +
                 "src=\"../resource/js/canvas-nest.js\"></script>" +
                 "</body>\n" +

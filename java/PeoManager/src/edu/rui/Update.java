@@ -7,45 +7,86 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Objects;
 
 @WebServlet(name = "Update", value = "/web/Update")
 public class Update extends HttpServlet {
     //删除与修改的数据库语句。
     private static final String UPDATE_TEMPLATE =
-            "UPDATE peo SET name ='%s' WHERE id ='%s'";
+            "UPDATE peo SET name ='%s',id='%s' WHERE id ='%s'";
     private static final String DELETE_TEMPLATE =
             "DELETE FROM peo WHERE id ='%s'";
+    private static final String SELECT_TEMPLATE = "SELECT * FROM peo WHERE id='%s';";
 
-
-    //为减少运行的servlet程序，删除与修改放在同一个servlet程序中，删除仅需传递id值便可所以使用get,修改须传递id值以及修改后的名字，使用post。
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String str = String.format(DELETE_TEMPLATE, request.getParameter("id"));
+        String str = String.format(SELECT_TEMPLATE, request.getParameter("id"));
+        String str1 = "<form method=\"post\" action=\"Update\" class=\"one\" id=\"%s\">\n" +
+                "    <table>\n" +
+                "        <tr>\n" +
+                "            <td>\n" +
+                "                名字\n" +
+                "                <input type=\"text\" name=\"name\" value=\"%s\">\n" +
+                "            </td>\n" +
+                "            <td>\n" +
+                "                学号\n" +
+                "                <input type=\"text\" name=\"id\"  value=\"%s\">\n" +
+                "            </td>\n" +
+                "        </tr>\n" +
+                "        <tr>\n" +
+                "            <td>\n" +
+                "                <input type=\"button\" style=\"color: aliceblue;margin:20px 0 0 86px;\" value=\"修改\" onclick=\"formSubmit(%s ,'修改')\">\n" +
+                "                <input type=\"button\" id=\"222020321072029\" style=\"color: aliceblue;margin:20px 0 0 30px;\" value=\"删除\" onclick=\"formSubmit(%s ,'删除')\">\n" +
+                "            </td>\n" +
+                "        </tr>\n" +
+                "    </table>\n" +
+                "</form>";
         try {
-            DBtool.excute(str);
+            List<Peo> peos = DBtool.all(str);
+            String string = null;
+            for (Peo peo : peos) {
+                string = String.format(str1, peo.getId(), peo.getName(), peo.getId(), peo.getId(), peo.getId());
+            }
+            String html = GetHtml.GetaddHead("更改记录") +
+                    string + GetHtml.GetallEnd();
+            response.getWriter().write(html);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        String html = GetHtml.GetaddHead("删除记录") +
-                "<h1 style=\"color:#edeff2a3\">删除成功</h1>" + GetHtml.GetaddEnd();
-        response.getWriter().write(html);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String str = String.format(UPDATE_TEMPLATE, request.getParameter("name"), request.getParameter("id"));
-        try {
-            DBtool.excute(str);
-        } catch (SQLException e) {
-            e.printStackTrace();
+        String str = null;
+        String back = null;
+        if (Objects.equals(request.getParameter("select"), "修改")) {
+            try {
+                if (DBtool.ishave(request.getParameter("id"))) {
+                    back = "已有该id,不可重复";
+                } else {
+                    str = String.format(UPDATE_TEMPLATE, request.getParameter("name"), request.getParameter("id"), request.getParameter("preid"));
+                    back = "修改成功";
+                    DBtool.excute(str);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                str = String.format(DELETE_TEMPLATE, request.getParameter("preid"));
+                back = "删除成功";
+                DBtool.excute(str);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
-        String html = GetHtml.GetaddHead("修改记录") +
-                "<h1 style=\"color:#edeff2a3\">更改成功</h1>" + GetHtml.GetaddEnd();
+        String html = GetHtml.GetaddHead("更改记录") +
+                "<h1 style=\"color:#edeff2a3\">" + back + "</h1>" + GetHtml.GetaddEnd();
         response.getWriter().write(html);
+
     }
 }
 

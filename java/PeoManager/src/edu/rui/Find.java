@@ -14,7 +14,7 @@ import java.util.Objects;
 public class Find extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String str = "<form method=\"post\" action=\"Find\">\n" +
+        String str = "<form method=\"post\" action=\"Find\"  class=\"one\">\n" +
                 "            <table>\n" +
                 "                <tr>\n" +
                 "                    <td>\n" +
@@ -41,56 +41,35 @@ public class Find extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String str1 = "<form method=\"post\" action=\"Update\" class=\"one\">\n" +
+        String str1 = "<a href=\"Update?id=%s\"><form method=\"post\" action=\"All\" class=\"one\">\n" +
                 "            <table>\n" +
                 "                <tr>\n" +
                 "                    <td>\n" +
                 "                        名字\n" +
-                "                        <input type=\"text\" name=\"name\" value=\"%s\">\n" +
+                "                        <input type=\"text\" name=\"name\" disabled value=\"%s\">\n" +
                 "                    </td>\n" +
                 "                    <td>\n" +
                 "                        学号\n" +
-                "                        <input type=\"text\" name=\"id\" readonly=\"readonly\" value=\"%s\" >\n" +
+                "                        <input type=\"text\" name=\"id\"   disabled value=\"%s\">\n" +
                 "                    </td>\n" +
                 "                </tr>\n" +
-                "                <tr>\n" +
-                "                    <td>\n" +
-                "                         <input type=\"submit\" style=\"color: aliceblue;margin:20px 0 0 86px;\" " +
-                "value=\"修改\">\n" +
-                "                         <input type=\"button\" id=\"%s\" style=\"color: aliceblue;margin:20px 0" +
-                " 0 30px;\" value=\"删除\">\n" +
-                "                         <script>document.getElementById(\"%s\").onclick = function () {open('" +
-                "./Update?id=%s')}</script>" +
-                "                    </td>" +
-                "                </tr>\n" +
                 "            </table>\n" +
-                "        </form>";
-
-        String str2 = "<form method=\"post\" action=\"Update\">\n" +
+                "        </form></a>";
+        String str2 = "<a href=\"Update?id=%s\"><form method=\"post\" action=\"All\">\n" +
                 "            <table>\n" +
                 "                <tr>\n" +
                 "                    <td>\n" +
                 "                        名字\n" +
-                "                        <input type=\"text\" name=\"name\" value=\"%s\">\n" +
+                "                        <input type=\"text\" name=\"name\" disabled value=\"%s\">\n" +
                 "                    </td>\n" +
                 "                    <td>\n" +
                 "                        学号\n" +
-                "                        <input type=\"text\" name=\"id\" readonly=\"readonly\" value=\"%s\" >\n" +
+                "                        <input type=\"text\" name=\"id\"   disabled value=\"%s\">\n" +
                 "                    </td>\n" +
                 "                </tr>\n" +
-                "                <tr>\n" +
-                "                    <td>\n" +
-                "                         <input type=\"submit\" style=\"color: aliceblue;margin:20px 0 0 86px;\" " +
-                "value=\"修改\">\n" +
-                "                         <input type=\"button\" id=\"%s\" style=\"color: aliceblue;margin:20px 0" +
-                " 0 30px;\" value=\"删除\">\n" +
-                "                         <script>document.getElementById(\"%s\").onclick = function () {open('" +
-                "./Update?id=%s')}</script>" +
-                "                    </td>" +
-                "                </tr>\n" +
                 "            </table>\n" +
-                "        </form>";
-        String str3 = "<h1 style=\"color:#edeff2a3\"><span>查找名:</span><span id=\"findname\">%s</span><span>查找id:</span><span id=\"findid\">%s</span></h1>";
+                "        </form></a>";
+        String str3 = "<h1 style=\"color:#edeff2a3\"><span>查找名:</span><span id=\"findname\">%s</span><span> 查找id:</span><span id=\"findid\">%s</span></h1>";
         String str4 = "<h1 style=\"color:#edeff2a3\">%s</h1>";
 
 
@@ -110,14 +89,12 @@ public class Find extends HttpServlet {
                     stringBuilder.append(String.format(str3, request.getParameter("name"), request.getParameter("id")));
                 }
                 for (Peo peo : peos) {
-                    stringBuilder.append(String.format(str1, peo.getName(), peo.getId(), peo.getId(), peo.getId(),
-                            peo.getId()));
+                    stringBuilder.append(String.format(str1, peo.getId(), peo.getName(), peo.getId()));
                 }
                 stringBuilder.append(GetHtml.GetallEnd());
             } else {
                 for (Peo peo : peos) {
-                    stringBuilder.append(String.format(str2, peo.getName(), peo.getId(), peo.getId(), peo.getId(),
-                            peo.getId()));
+                    stringBuilder.append(String.format(str2, peo.getId(), peo.getName(), peo.getId()));
                 }
             }
 

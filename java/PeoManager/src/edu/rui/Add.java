@@ -17,16 +17,16 @@ public class Add extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String str = "<form method=\"post\" action=\"Add\">\n" +
+        String str = "<form method=\"post\" action=\"Add\"  class=\"one\">\n" +
                 "            <table>\n" +
                 "                <tr>\n" +
                 "                    <td>\n" +
                 "                        名字\n" +
-                "                        <input type=\"text\" name=\"name\" value=\"\">\n" +
+                "                        <input type=\"text\" name=\"name\" value=\"\" required>\n" +
                 "                    </td>\n" +
                 "                    <td>\n" +
                 "                        学号\n" +
-                "                        <input type=\"text\" name=\"id\"   value=\"\">\n" +
+                "                        <input type=\"text\" name=\"id\"   value=\"\" required>\n" +
                 "                    </td>\n" +
                 "                </tr>\n" +
                 "                <tr>\n" +
@@ -43,16 +43,21 @@ public class Add extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String str = String.format(INSERT_TEMPLATE, request.getParameter("name"), request.getParameter("id"));
+        String back = "";
         try {
-            DBtool.excute(str);
+            if (DBtool.ishave(request.getParameter("id"))) {
+                back = "已有该id，不可重复";
+            } else {
+                DBtool.excute(str);
+                back = "添加成功";
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         String html = GetHtml.GetaddHead("添加记录") +
-                "<h1 style=\"color:#edeff2a3\">添加成功</h1>" + GetHtml.GetaddEnd();
+                "<h1 style=\"color:#edeff2a3\">" + back + "</h1>" + GetHtml.GetaddEnd();
         response.getWriter().write(html);
     }
 }

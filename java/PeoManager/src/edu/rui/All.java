@@ -13,7 +13,7 @@ import java.util.List;
 public class All extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String str1 = "<form method=\"post\" action=\"All\" class=\"one\">\n" +
+        String str1 = "<a href=\"Update?id=%s\"><form method=\"post\" action=\"All\" class=\"one\">\n" +
                 "            <table>\n" +
                 "                <tr>\n" +
                 "                    <td>\n" +
@@ -26,8 +26,8 @@ public class All extends HttpServlet {
                 "                    </td>\n" +
                 "                </tr>\n" +
                 "            </table>\n" +
-                "        </form>";
-        String str2 = "<form method=\"post\" action=\"All\">\n" +
+                "        </form></a>";
+        String str2 = "<a href=\"Update?id=%s\"><form method=\"post\" action=\"All\">\n" +
                 "            <table>\n" +
                 "                <tr>\n" +
                 "                    <td>\n" +
@@ -40,7 +40,7 @@ public class All extends HttpServlet {
                 "                    </td>\n" +
                 "                </tr>\n" +
                 "            </table>\n" +
-                "        </form>";
+                "        </form></a>";
 
         StringBuilder stringBuilder = new StringBuilder();
         try {
@@ -48,13 +48,13 @@ public class All extends HttpServlet {
                 stringBuilder.append(GetHtml.GetaddHead("所有记录"));
                 List<Peo> peos = DBtool.all("SELECT * FROM peo LIMIT 10 OFFSET 0;");
                 for (Peo peo : peos) {
-                    stringBuilder.append(String.format(str1, peo.getName(), peo.getId()));
+                    stringBuilder.append(String.format(str1, peo.getId(), peo.getName(), peo.getId()));
                 }
                 stringBuilder.append(GetHtml.GetallEnd());
             } else {
                 List<Peo> peos = DBtool.all("SELECT * FROM peo LIMIT 10 OFFSET " + request.getParameter("ele") + ";");
                 for (Peo peo : peos) {
-                    stringBuilder.append(String.format(str2, peo.getName(), peo.getId()));
+                    stringBuilder.append(String.format(str2, peo.getId(), peo.getName(), peo.getId()));
                 }
             }
 

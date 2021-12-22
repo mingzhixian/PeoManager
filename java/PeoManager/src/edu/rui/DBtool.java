@@ -59,4 +59,10 @@ public class DBtool {
         }
         return count;
     }
+
+    public static boolean ishave(String id) throws SQLException {
+        String findstr = "SELECT * FROM peo WHERE id ='" + id + "';";
+        List<Peo> peos = all(findstr);
+        return !peos.isEmpty();
+    }
 }

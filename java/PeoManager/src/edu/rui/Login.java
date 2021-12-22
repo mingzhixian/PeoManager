@@ -15,7 +15,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //str1为登录界面，str2为登出界面
-        String str1 = "<form method=\"post\" action=\"Login\">\n" +
+        String str1 = "<form method=\"post\" action=\"Login\"  class=\"one\">\n" +
                 "            <table>\n" +
                 "                <tr>\n" +
                 "                    <td>\n" +
@@ -40,7 +40,7 @@ public class Login extends HttpServlet {
                 "                </tr>\n" +
                 "            </table>\n" +
                 "        </form>";
-        String str2 = "<form method=\"post\" action=\"Login\">\n" +
+        String str2 = "<form method=\"post\" action=\"Login\"  class=\"one\">\n" +
                 "            <table>\n" +
                 "                <tr>\n" +
                 "                    <td><input type=\"submit\" style=\"color: aliceblue;margin:20px 0 0 200px;" +
