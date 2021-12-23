@@ -7,8 +7,8 @@ function formSubmit(formid, select) {
     } else if (id[0].value === "") {
         alert("id不能为空");
     } else {
-        var tmpInput1 = $("<input type='text' name='select' value='" + select + "'/>");
-        var tmpInput2 = $("<input type='text' name='preid' value='" + formid + "'/>");
+        var tmpInput1 = $("<input type='text' style='display: none' name='select' value='" + select + "'/>");
+        var tmpInput2 = $("<input type='text' style='display: none' name='preid' value='" + formid + "'/>");
         form.append(tmpInput1);
         form.append(tmpInput2);
         form.submit();

@@ -63,7 +63,8 @@ public class Update extends HttpServlet {
         String back = null;
         if (Objects.equals(request.getParameter("select"), "修改")) {
             try {
-                if (DBtool.ishave(request.getParameter("id"))) {
+                if (!Objects.equals(request.getParameter("preid"), request.getParameter("id")) && DBtool.ishave(request.getParameter(
+                        "id"))) {
                     back = "已有该id,不可重复";
                 } else {
                     str = String.format(UPDATE_TEMPLATE, request.getParameter("name"), request.getParameter("id"), request.getParameter("preid"));
