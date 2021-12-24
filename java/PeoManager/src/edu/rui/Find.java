@@ -13,7 +13,7 @@ import java.util.Objects;
 @WebServlet(name = "Find", value = "/web/Find")
 public class Find extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String str = "<form method=\"post\" action=\"Find\"  class=\"one\">\n" +
                 "            <table>\n" +
                 "                <tr>\n" +

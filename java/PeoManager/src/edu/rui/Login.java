@@ -111,7 +111,7 @@ public class Login extends HttpServlet {
                     } else {
                         back = "<h1 style=\"color:#edeff2a3;\">密码错误</h1>";
                     }
-                } catch (SQLException e) {
+                } catch (SQLException | ClassNotFoundException e) {
                     e.printStackTrace();
                 }
             } else {

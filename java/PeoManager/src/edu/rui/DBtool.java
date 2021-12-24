@@ -1,22 +1,41 @@
 package edu.rui;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
 import javax.servlet.annotation.WebServlet;
-import java.sql.*;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "DBtool", value = "/web/DBtool")
 public class DBtool {
-    private static final String DB_DRIVER = "org.sqlite.JDBC";
-    private static final String DB_URL = "jdbc:sqlite:/home/kic/DB/PeoManager.db";
+    static DataSource ds = null;
 
-    public static void excute(String str) throws SQLException {
-        try {
-            Class.forName(DB_DRIVER);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+    private static void setDataSource() throws ClassNotFoundException {
+        Class.forName("org.sqlite.JDBC");
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl("jdbc:sqlite:/home/kic/DB/PeoManager.db");
+        config.addDataSourceProperty("connectionTimeout", "1000"); // 连接超时：1秒
+        config.addDataSourceProperty("idleTimeout", "5*60000"); // 空闲超时：5*1分钟
+        config.addDataSourceProperty("maximumPoolSize", "10"); // 最大连接数：10
+        ds = new HikariDataSource(config);
+    }
+
+    private static Connection getconnection() throws ClassNotFoundException, SQLException {
+        if (ds == null) {
+            setDataSource();
         }
-        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+        Class.forName("org.sqlite.JDBC");
+        return ds.getConnection();
+    }
+
+    public static void excute(String str) throws SQLException, ClassNotFoundException {
+        try (Connection connection = getconnection()) {
             try (Statement statement = connection.createStatement()) {
                 statement.execute(str);
             }
@@ -25,12 +44,7 @@ public class DBtool {
 
     public static List<Peo> all(String sql) throws SQLException {
         List<Peo> peos = new ArrayList<>();
-        try {
-            Class.forName(DB_DRIVER);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+        try (Connection connection = getconnection()) {
             try (Statement statement = connection.createStatement()) {
                 ResultSet one = statement.executeQuery(sql);
                 while (one.next()) {
@@ -38,24 +52,23 @@ public class DBtool {
                     peos.add(peo);
                 }
             }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
         return peos;
     }
 
     public static Count login(String sql) throws SQLException {
         Count count = null;
-        try {
-            Class.forName(DB_DRIVER);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+        try (Connection connection = getconnection()) {
             try (Statement statement = connection.createStatement()) {
                 ResultSet one = statement.executeQuery(sql);
                 while (one.next()) {
                     count = new Count(one.getString("name"), one.getString("password"), one.getInt("admin"));
                 }
             }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
         return count;
     }

@@ -1,6 +1,5 @@
 package edu.rui;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +15,7 @@ public class Add extends HttpServlet {
                     "VALUES ('%s', '%s')";
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String str = "<form method=\"post\" action=\"Add\"  class=\"one\">\n" +
                 "            <table>\n" +
                 "                <tr>\n" +
@@ -42,7 +41,7 @@ public class Add extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String str = String.format(INSERT_TEMPLATE, request.getParameter("name"), request.getParameter("id"));
         String back = "";
         try {
@@ -52,7 +51,7 @@ public class Add extends HttpServlet {
                 DBtool.excute(str);
                 back = "添加成功";
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 

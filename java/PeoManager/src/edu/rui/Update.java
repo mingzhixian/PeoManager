@@ -1,6 +1,5 @@
 package edu.rui;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +19,7 @@ public class Update extends HttpServlet {
     private static final String SELECT_TEMPLATE = "SELECT * FROM peo WHERE id='%s';";
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String str = String.format(SELECT_TEMPLATE, request.getParameter("id"));
         String str1 = "<form method=\"post\" action=\"Update\" class=\"one\" id=\"%s\">\n" +
@@ -58,7 +57,7 @@ public class Update extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String str = null;
         String back = null;
         if (Objects.equals(request.getParameter("select"), "修改")) {
@@ -71,7 +70,7 @@ public class Update extends HttpServlet {
                     back = "修改成功";
                     DBtool.excute(str);
                 }
-            } catch (SQLException e) {
+            } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         } else {
@@ -79,7 +78,7 @@ public class Update extends HttpServlet {
                 str = String.format(DELETE_TEMPLATE, request.getParameter("preid"));
                 back = "删除成功";
                 DBtool.excute(str);
-            } catch (SQLException e) {
+            } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
