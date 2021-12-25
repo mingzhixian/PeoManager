@@ -14,61 +14,18 @@ import java.util.Objects;
 public class Find extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String str = "<form method=\"post\" action=\"Find\"  class=\"one\">\n" +
-                "            <table>\n" +
-                "                <tr>\n" +
-                "                    <td>\n" +
-                "                        名字\n" +
-                "                        <input type=\"text\" name=\"name\" value=\"\">\n" +
-                "                    </td>\n" +
-                "                    <td>\n" +
-                "                        学号\n" +
-                "                        <input type=\"text\" name=\"id\"   value=\"\">\n" +
-                "                    </td>\n" +
-                "                </tr>\n" +
-                "                <tr>\n" +
-                "                    <td><input type=\"submit\" style=\"color: aliceblue;margin:20px 0 0 200px;" +
-                "\"></td>\n" +
-                "                </tr>\n" +
-                "            </table>\n" +
-                "        </form>";
+        String str = GetHtml.GetHtmlSelect("GetFindFormOne", "");
 
 
-        response.getWriter().write(GetHtml.GetaddHead("搜索记录") +
-                str + GetHtml.GetaddEnd());
+        response.getWriter().write(GetHtml.GetHtmlSelect("GetHead", "搜索记录") + str + GetHtml.GetHtmlSelect("GetEnd",
+                ""));
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String str1 = "<a href=\"Update?id=%s\"><form method=\"post\" action=\"All\" class=\"one\">\n" +
-                "            <table>\n" +
-                "                <tr>\n" +
-                "                    <td>\n" +
-                "                        名字\n" +
-                "                        <input type=\"text\" name=\"name\" disabled value=\"%s\">\n" +
-                "                    </td>\n" +
-                "                    <td>\n" +
-                "                        学号\n" +
-                "                        <input type=\"text\" name=\"id\"   disabled value=\"%s\">\n" +
-                "                    </td>\n" +
-                "                </tr>\n" +
-                "            </table>\n" +
-                "        </form></a>";
-        String str2 = "<a href=\"Update?id=%s\"><form method=\"post\" action=\"All\">\n" +
-                "            <table>\n" +
-                "                <tr>\n" +
-                "                    <td>\n" +
-                "                        名字\n" +
-                "                        <input type=\"text\" name=\"name\" disabled value=\"%s\">\n" +
-                "                    </td>\n" +
-                "                    <td>\n" +
-                "                        学号\n" +
-                "                        <input type=\"text\" name=\"id\"   disabled value=\"%s\">\n" +
-                "                    </td>\n" +
-                "                </tr>\n" +
-                "            </table>\n" +
-                "        </form></a>";
+        String str1 = GetHtml.GetHtmlSelect("GetFindPostFormOne", "");
+        String str2 = GetHtml.GetHtmlSelect("GetFindPostForm", "");
         String str3 = "<h1 style=\"color:#edeff2a3\"><span>查找名:</span><span id=\"findname\">%s</span><span> 查找id:</span><span id=\"findid\">%s</span></h1>";
         String str4 = "<h1 style=\"color:#edeff2a3\">%s</h1>";
 
@@ -82,7 +39,8 @@ public class Find extends HttpServlet {
             List<Peo> peos = DBtool.all(findstr);
             if (request.getParameter("ele") == null) {
                 //返回网页框架
-                stringBuilder.append(GetHtml.GetaddHead("搜索记录"));
+                stringBuilder.append(GetHtml.GetHtmlSelect("GetHead",
+                        "搜索记录"));
                 if (peos.isEmpty()) {
                     stringBuilder.append(String.format(str4, "未找到"));
                 } else {
@@ -91,7 +49,8 @@ public class Find extends HttpServlet {
                 for (Peo peo : peos) {
                     stringBuilder.append(String.format(str1, peo.getId(), peo.getName(), peo.getId()));
                 }
-                stringBuilder.append(GetHtml.GetallEnd());
+                stringBuilder.append(GetHtml.GetHtmlSelect("GetAddEnd",
+                        ""));
             } else {
                 for (Peo peo : peos) {
                     stringBuilder.append(String.format(str2, peo.getId(), peo.getName(), peo.getId()));

@@ -22,34 +22,14 @@ public class Update extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String str = String.format(SELECT_TEMPLATE, request.getParameter("id"));
-        String str1 = "<form method=\"post\" action=\"Update\" class=\"one\" id=\"%s\">\n" +
-                "    <table>\n" +
-                "        <tr>\n" +
-                "            <td>\n" +
-                "                名字\n" +
-                "                <input type=\"text\" name=\"name\" value=\"%s\">\n" +
-                "            </td>\n" +
-                "            <td>\n" +
-                "                学号\n" +
-                "                <input type=\"text\" name=\"id\"  value=\"%s\">\n" +
-                "            </td>\n" +
-                "        </tr>\n" +
-                "        <tr>\n" +
-                "            <td>\n" +
-                "                <input type=\"button\" style=\"color: aliceblue;margin:20px 0 0 86px;\" value=\"修改\" onclick=\"formSubmit(%s ,'修改')\">\n" +
-                "                <input type=\"button\" id=\"222020321072029\" style=\"color: aliceblue;margin:20px 0 0 30px;\" value=\"删除\" onclick=\"formSubmit(%s ,'删除')\">\n" +
-                "            </td>\n" +
-                "        </tr>\n" +
-                "    </table>\n" +
-                "</form>";
+        String str1 = GetHtml.GetHtmlSelect("GetUpdateForm", "");
         try {
             List<Peo> peos = DBtool.all(str);
             String string = null;
             for (Peo peo : peos) {
                 string = String.format(str1, peo.getId(), peo.getName(), peo.getId(), peo.getId(), peo.getId());
             }
-            String html = GetHtml.GetaddHead("更改记录") +
-                    string + GetHtml.GetallEnd();
+            String html = GetHtml.GetHtmlSelect("GetHead", "更改记录") + string + GetHtml.GetHtmlSelect("GetAddEnd", "");
             response.getWriter().write(html);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -58,7 +38,7 @@ public class Update extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String str = null;
+        String str;
         String back = null;
         if (Objects.equals(request.getParameter("select"), "修改")) {
             try {
@@ -83,8 +63,8 @@ public class Update extends HttpServlet {
             }
         }
 
-        String html = GetHtml.GetaddHead("更改记录") +
-                "<h1 style=\"color:#edeff2a3\">" + back + "</h1>" + GetHtml.GetaddEnd();
+        String html = GetHtml.GetHtmlSelect("GetHead", "更改记录") +
+                "<h1 style=\"color:#edeff2a3\">" + back + "</h1>" + GetHtml.GetHtmlSelect("GetEnd", "");
         response.getWriter().write(html);
 
     }

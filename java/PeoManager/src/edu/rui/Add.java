@@ -16,28 +16,11 @@ public class Add extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String str = "<form method=\"post\" action=\"Add\"  class=\"one\">\n" +
-                "            <table>\n" +
-                "                <tr>\n" +
-                "                    <td>\n" +
-                "                        名字\n" +
-                "                        <input type=\"text\" name=\"name\" value=\"\" required>\n" +
-                "                    </td>\n" +
-                "                    <td>\n" +
-                "                        学号\n" +
-                "                        <input type=\"text\" name=\"id\"   value=\"\" required>\n" +
-                "                    </td>\n" +
-                "                </tr>\n" +
-                "                <tr>\n" +
-                "                    <td><input type=\"submit\" style=\"color: aliceblue;margin:20px 0 0 200px;" +
-                "\"></td>\n" +
-                "                </tr>\n" +
-                "            </table>\n" +
-                "        </form>";
+        String str = GetHtml.GetHtmlSelect("GetAddForm", "");
 
 
-        response.getWriter().write(GetHtml.GetaddHead("添加记录") +
-                str + GetHtml.GetaddEnd());
+        response.getWriter().write(GetHtml.GetHtmlSelect("GetHead", "添加记录") +
+                str + GetHtml.GetHtmlSelect("GetEnd", ""));
     }
 
     @Override
@@ -55,8 +38,8 @@ public class Add extends HttpServlet {
             e.printStackTrace();
         }
 
-        String html = GetHtml.GetaddHead("添加记录") +
-                "<h1 style=\"color:#edeff2a3\">" + back + "</h1>" + GetHtml.GetaddEnd();
+        String html = GetHtml.GetHtmlSelect("GetHead", "添加记录") +
+                "<h1 style=\"color:#edeff2a3\">" + back + "</h1>" + GetHtml.GetHtmlSelect("GetEnd", "");
         response.getWriter().write(html);
     }
 }

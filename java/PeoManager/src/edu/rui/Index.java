@@ -11,8 +11,7 @@ import java.io.IOException;
 public class Index extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String string = GetHtml.GetaddHead("人员管理") +
-                GetHtml.GetaddEnd();
+        String string = GetHtml.GetHtmlSelect("GetHead", "人员管理") + GetHtml.GetHtmlSelect("GetEnd", "");
         response.getWriter().write(string);
     }
 

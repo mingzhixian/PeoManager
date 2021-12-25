@@ -15,39 +15,9 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //str1为登录界面，str2为登出界面
-        String str1 = "<form method=\"post\" action=\"Login\"  class=\"one\">\n" +
-                "            <table>\n" +
-                "                <tr>\n" +
-                "                    <td>\n" +
-                "                        账户\n" +
-                "                        <input type=\"text\" name=\"name\" value=\"\" required>\n" +
-                "                    </td>\n" +
-                "                    <td>\n" +
-                "                        密码\n" +
-                "                        <input type=\"password\" name=\"password\"   value=\"\" required>\n" +
-                "                    </td>\n" +
-                "                </tr>\n" +
-                "                <tr>\n" +
-                "                    <td>\n" +
-                "                        验证码\n" +
-                "                        <input type=\"text\" name=\"checkcode\"   value=\"\" required>\n" +
-                "                    </td>\n" +
-                "                    <td><img id=\"checkcodepic\"  onclick=\"checkcodeupdate()\" src=\"../CheckCodeBack\"/></td>\n" +
-                "                </tr>\n" +
-                "                <tr>\n" +
-                "                    <td><input type=\"submit\" style=\"color: aliceblue;margin:20px 0 0 200px;" +
-                "\" value=\"登录或注册\"></td>\n" +
-                "                </tr>\n" +
-                "            </table>\n" +
-                "        </form>";
-        String str2 = "<form method=\"post\" action=\"Login\"  class=\"one\">\n" +
-                "            <table>\n" +
-                "                <tr>\n" +
-                "                    <td><input type=\"submit\" style=\"color: aliceblue;margin:20px 0 0 200px;" +
-                "\" value=\"登出\"></td>\n" +
-                "                </tr>\n" +
-                "            </table>\n" +
-                "        </form>";
+        String str1 = null;
+        str1 = GetHtml.GetHtmlSelect("GetLoginForm", "");
+        String str2 = GetHtml.GetHtmlSelect("GetLoginOutForm", "");
 
         //寻找cookie记录
         Cookie logined = null;
@@ -62,11 +32,10 @@ public class Login extends HttpServlet {
         }
         //判断登录还是登出
         if (logined != null) {
-            response.getWriter().write(GetHtml.GetaddHead("后台登录") +
-                    str2 + GetHtml.GetaddEnd());
+            response.getWriter().write(GetHtml.GetHtmlSelect("GetHead", "后台登录") + str2 + GetHtml.GetHtmlSelect("GetEnd", ""));
         } else {
-            response.getWriter().write(GetHtml.GetaddHead("后台登录") +
-                    str1 + GetHtml.GetaddEnd());
+            response.getWriter().write(GetHtml.GetHtmlSelect("GetHead", "后台登录") + str1 + GetHtml.GetHtmlSelect(
+                    "GetEnd", ""));
         }
     }
 
@@ -118,7 +87,7 @@ public class Login extends HttpServlet {
                 back = "<h1 style=\"color:#edeff2a3;\">验证码错误</h1>";
             }
         }
-        response.getWriter().write(GetHtml.GetaddHead("后台登录") + back + GetHtml.GetaddEnd());
+        response.getWriter().write(GetHtml.GetHtmlSelect("GetHead", "后台登录") + back + GetHtml.GetHtmlSelect("GetEnd", ""));
 
     }
 

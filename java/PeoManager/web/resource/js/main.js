@@ -2,9 +2,9 @@ function formSubmit(formid, select) {
     var form = $("#" + formid); //得到form对象
     var name = document.getElementsByName("name");
     var id = document.getElementsByName("id");
-    if (name[0].value === "") {
+    if (name[0].value === "" && select === "修改") {
         alert("姓名不能为空");
-    } else if (id[0].value === "") {
+    } else if (id[0].value === "" && select === "修改") {
         alert("id不能为空");
     } else {
         var tmpInput1 = $("<input type='text' style='display: none' name='select' value='" + select + "'/>");

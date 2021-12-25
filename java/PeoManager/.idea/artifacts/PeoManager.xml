@@ -7,11 +7,13 @@
           <element id="module-output" name="PeoManager" />
         </element>
         <element id="directory" name="lib">
-          <element id="file-copy" path="$PROJECT_DIR$/../sqlite-jdbc-3.36.0.3.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../HikariCP-5.0.0.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../slf4j-log4j12-1.6.0.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../slf4j-api-1.7.2.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../log4j-1.2.17.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../jars/log4j-1.2.17.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../jars/slf4j-api-1.7.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../jars/sqlite-jdbc-3.36.0.3.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../jars/HikariCP-5.0.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../jars/slf4j-log4j12-1.6.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../jars/htmlcompressor-1.5.3.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../jars/yuicompressor-2.4.8.jar" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="PeoManager/web/Web" />

@@ -13,44 +13,18 @@ import java.util.List;
 public class All extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String str1 = "<a href=\"Update?id=%s\"><form method=\"post\" action=\"All\" class=\"one\">\n" +
-                "            <table>\n" +
-                "                <tr>\n" +
-                "                    <td>\n" +
-                "                        名字\n" +
-                "                        <input type=\"text\" name=\"name\" disabled value=\"%s\">\n" +
-                "                    </td>\n" +
-                "                    <td>\n" +
-                "                        学号\n" +
-                "                        <input type=\"text\" name=\"id\"   disabled value=\"%s\">\n" +
-                "                    </td>\n" +
-                "                </tr>\n" +
-                "            </table>\n" +
-                "        </form></a>";
-        String str2 = "<a href=\"Update?id=%s\"><form method=\"post\" action=\"All\">\n" +
-                "            <table>\n" +
-                "                <tr>\n" +
-                "                    <td>\n" +
-                "                        名字\n" +
-                "                        <input type=\"text\" name=\"name\" disabled value=\"%s\">\n" +
-                "                    </td>\n" +
-                "                    <td>\n" +
-                "                        学号\n" +
-                "                        <input type=\"text\" name=\"id\"   disabled value=\"%s\">\n" +
-                "                    </td>\n" +
-                "                </tr>\n" +
-                "            </table>\n" +
-                "        </form></a>";
+        String str1 = GetHtml.GetHtmlSelect("GetAllFormOne", "");
+        String str2 = GetHtml.GetHtmlSelect("GetAllForm", "");
 
         StringBuilder stringBuilder = new StringBuilder();
         try {
             if (request.getParameter("ele") == null) {
-                stringBuilder.append(GetHtml.GetaddHead("所有记录"));
+                stringBuilder.append(GetHtml.GetHtmlSelect("GetHead", "所有记录"));
                 List<Peo> peos = DBtool.all("SELECT * FROM peo LIMIT 10 OFFSET 0;");
                 for (Peo peo : peos) {
                     stringBuilder.append(String.format(str1, peo.getId(), peo.getName(), peo.getId()));
                 }
-                stringBuilder.append(GetHtml.GetallEnd());
+                stringBuilder.append(GetHtml.GetHtmlSelect("GetAddEnd", ""));
             } else {
                 List<Peo> peos = DBtool.all("SELECT * FROM peo LIMIT 10 OFFSET " + request.getParameter("ele") + ";");
                 for (Peo peo : peos) {
