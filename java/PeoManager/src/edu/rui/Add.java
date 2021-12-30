@@ -12,12 +12,15 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Objects;
 
 @WebServlet(name = "Add", value = "/web/Add")
 public class Add extends HttpServlet {
 
-    private static final String INSERT_TEMPLATE =
+    private static final String INSERT_TEMPLATE1 =
             "INSERT INTO peo (`name`, `id`,'filePath') VALUES ('%s', '%s','%s')";
+    private static final String INSERT_TEMPLATE2 =
+            "INSERT INTO peo (`name`, `id`) VALUES ('%s', '%s')";
     private static final int MEMORY_THRESHOLD = 1024 * 1024 * 3;  // 3MB
     private static final int MAX_FILE_SIZE = 1024 * 1024 * 40; // 40MB
     private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 50; // 50MB
@@ -36,6 +39,7 @@ public class Add extends HttpServlet {
         String name = null;
         String id = null;
         String filePath = null;
+        String sql = null;
         // 配置上传参数
         DiskFileItemFactory factory = new DiskFileItemFactory();
         // 设置内存临界值 - 超过后将产生临时文件并存储于临时目录中
@@ -69,25 +73,27 @@ public class Add extends HttpServlet {
                         }
                     }
                 }
-                if (fileItem != null) {
+                if (!Objects.equals(fileItem.getName(), "")) {
                     String fileName = new File(fileItem.getName()).getName();
                     filePath = DBtool.getDataPath() + "attachment/" + id + fileName;
                     File file = new File(filePath);
                     file.getParentFile().mkdirs();
                     fileItem.write(file);
+                    sql = String.format(INSERT_TEMPLATE1, name, id, filePath);
+                } else {
+                    sql = String.format(INSERT_TEMPLATE2, name, id);
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        String str = String.format(INSERT_TEMPLATE, name, id, filePath);
         String back = "";
         try {
             if (DBtool.ishave(request.getParameter("id"))) {
                 back = "已有该id，不可重复";
             } else {
-                DBtool.excute(str);
+                DBtool.excute(sql);
                 back = "添加成功";
             }
         } catch (SQLException | ClassNotFoundException e) {

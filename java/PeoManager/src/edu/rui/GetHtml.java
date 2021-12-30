@@ -71,15 +71,14 @@ public class GetHtml {
                 "                    </td>\n" +
                 "                    <td>\n" +
                 "                        学号\n" +
-                "                        <input type=\"text\" name=\"id\"   value=\"\" required>\n" +
+                "                        <input type=\"text\" name=\"id\"   value=\"\" required oninput=\"value=value.replace(/[^\\d]/g,'')\">\n" +
                 "                    </td>\n" +
                 "                </tr>\n" +
                 "                <tr>\n" +
                 "                    <td>\n" +
                 "                        <input type=\"file\" name=\"attachment\" style=\"background-color: #566e3e00; color: aliceblue;" +
                 "margin:20px 0 0 86px;\">\n" +
-                "                        <input type=\"submit\" style=\"background-color: #4b5e87ad; color: aliceblue;margin:20px 0 0 30px;" +
-                "\"></td>\n" +
+                "                        <input type=\"submit\" style=\"background-color: #4b5e87ad; color: aliceblue;margin:20px 0 0 30px;\"></td>\n" +
                 "                </tr>\n" +
                 "            </table>\n" +
                 "        </form>";
@@ -129,7 +128,7 @@ public class GetHtml {
                 "                    </td>\n" +
                 "                    <td>\n" +
                 "                        学号\n" +
-                "                        <input type=\"text\" name=\"id\"   value=\"\">\n" +
+                "                        <input type=\"text\" name=\"id\"   value=\"\" oninput=\"value=value.replace(/[^\\d]/g,'')\">\n" +
                 "                    </td>\n" +
                 "                </tr>\n" +
                 "                <tr>\n" +
