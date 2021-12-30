@@ -1,4 +1,4 @@
-for (int x = 0; x < strlen(data); x++)
-		{
-			a->data[a->ele].data[x]=data[x];
-		}
+for (int i = 0; i < keyEle; i++)
+	{
+		allstep+=Find(*z,a[i]);
+	}

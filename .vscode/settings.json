@@ -12,6 +12,8 @@
 		"ch7-PRIM.C": "cpp",
 		"ch7-KRUSKAL.C": "cpp",
 		"ch7-SHORTDISJ.C": "cpp",
-		"ch10-QSORT.C": "cpp"
+		"ch10-QSORT.C": "cpp",
+		"ch10-heap.c.C": "cpp",
+		"ch10-MERGESOT.C": "cpp"
 	}
 }

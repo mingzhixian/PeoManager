@@ -14,6 +14,7 @@
           <element id="file-copy" path="$PROJECT_DIR$/../jars/slf4j-log4j12-1.6.0.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/../jars/htmlcompressor-1.5.3.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/../jars/yuicompressor-2.4.8.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../jars/ibatis-common-2.jar" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="PeoManager/web/Web" />

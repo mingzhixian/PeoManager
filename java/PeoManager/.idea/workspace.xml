@@ -19,6 +19,7 @@
         <option value="Class" />
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -52,7 +53,8 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jars/yuicompressor-2.4.8.jar" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言" value="SQLite" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/edu/rui/db_init.sql" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -67,6 +69,7 @@
       <recent name="$PROJECT_DIR$/web" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/edu/rui" />
       <recent name="$PROJECT_DIR$/web/resource/font" />
       <recent name="$PROJECT_DIR$/web/resource" />
       <recent name="$PROJECT_DIR$/web/img" />
