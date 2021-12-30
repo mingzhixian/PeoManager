@@ -9,6 +9,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -32,7 +34,7 @@ public class Download extends HttpServlet {
         }
 
         // 设置下载头信息
-        response.setHeader("content-disposition", "attachment;filename=" + fileName);
+        response.setHeader("content-disposition", "attachment;filename=" + URLEncoder.encode(fileName, StandardCharsets.UTF_8));
         File file = new File(filePath);
         InputStream is = new FileInputStream(file);
         ServletOutputStream os = response.getOutputStream();

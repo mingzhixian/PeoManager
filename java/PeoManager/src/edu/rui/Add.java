@@ -62,10 +62,10 @@ public class Add extends HttpServlet {
                         fileItem = item;
                     } else {
                         if (item.getFieldName().equals("name")) {
-                            name = item.getString();
+                            name = item.getString("UTF-8");
                         }
                         if (item.getFieldName().equals("id")) {
-                            id = item.getString();
+                            id = item.getString("UTF-8");
                         }
                     }
                 }
