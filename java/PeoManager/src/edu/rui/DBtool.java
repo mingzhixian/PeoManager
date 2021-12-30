@@ -6,6 +6,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 import javax.sql.DataSource;
+import java.io.File;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,9 +15,18 @@ import java.util.List;
 public class DBtool {
     static DataSource ds = null;
     private static int IsFrist = 0;
-    static String DbUrl = "jdbc:sqlite:/home/kic/DB/PeoManager.db";
+    private static final String dataPath = "/home/kic/PeoManagerData/";
+    //数据库地址
+    private static final String filePath = dataPath + "PeoManager.db";
+    private static final String DbUrl = "jdbc:sqlite:" + filePath;
+
+    //默认附件和数据库统一存放，不在项目下
+    public static String getDataPath() {
+        return dataPath;
+    }
 
     private static void setDataSource() throws ClassNotFoundException {
+        new File(filePath).getParentFile().mkdirs();
         Class.forName("org.sqlite.JDBC");
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl(DbUrl);
@@ -59,7 +69,7 @@ public class DBtool {
             try (Statement statement = connection.createStatement()) {
                 ResultSet one = statement.executeQuery(sql);
                 while (one.next()) {
-                    Peo peo = new Peo(one.getString("name"), one.getString("id"));
+                    Peo peo = new Peo(one.getString("name"), one.getString("id"), one.getString("filePath"));
                     peos.add(peo);
                 }
             }

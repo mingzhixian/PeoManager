@@ -62,7 +62,7 @@ public class GetHtml {
     }
 
     public static String GetAddForm() {
-        return "<form method=\"post\" action=\"Add\"  class=\"one\">\n" +
+        return "<form method=\"post\" action=\"Add\"  class=\"one\" enctype=\"multipart/form-data\">\n" +
                 "            <table>\n" +
                 "                <tr>\n" +
                 "                    <td>\n" +
@@ -75,7 +75,10 @@ public class GetHtml {
                 "                    </td>\n" +
                 "                </tr>\n" +
                 "                <tr>\n" +
-                "                    <td><input type=\"submit\" style=\"color: aliceblue;margin:20px 0 0 200px;" +
+                "                    <td>\n" +
+                "                        <input type=\"file\" name=\"attachment\" style=\"background-color: #566e3ede; color: aliceblue;" +
+                "margin:20px 0 0 86px;\" value=\"附件\">\n" +
+                "                        <input type=\"submit\" style=\"background-color: #4b5e87ad; color: aliceblue;margin:20px 0 0 30px;" +
                 "\"></td>\n" +
                 "                </tr>\n" +
                 "            </table>\n" +
@@ -225,8 +228,40 @@ public class GetHtml {
                 "        </tr>\n" +
                 "        <tr>\n" +
                 "            <td>\n" +
-                "                <input type=\"button\" style=\"color: aliceblue;margin:20px 0 0 86px;\" value=\"修改\" onclick=\"formSubmit(%s ,'修改')\">\n" +
-                "                <input type=\"button\" id=\"222020321072029\" style=\"color: aliceblue;margin:20px 0 0 30px;\" value=\"删除\" onclick=\"formSubmit(%s ,'删除')\">\n" +
+                "                <input type=\"button\" style=\"background-color: #4b5e87ad; color: aliceblue;margin:20px 0 0 86px;\" " +
+                "value=\"修改\" onclick=\"formSubmit(%s ,'修改')\">\n" +
+                "                <input type=\"button\" id=\"222020321072029\" style=\"background-color: #9336369e;  color: aliceblue;margin:20px " +
+                "0 0 30px;\" value=\"删除\" onclick=\"formSubmit(%s ,'删除')\">\n" +
+                "            </td>\n" +
+                "        </tr>\n" +
+                "    </table>\n" +
+                "</form>";
+    }
+
+    public static String GetUpdateFormAttachment() {
+        return "<form method=\"post\" action=\"Update\" class=\"one\" id=\"%s\">\n" +
+                "    <table>\n" +
+                "        <tr>\n" +
+                "            <td>\n" +
+                "                名字\n" +
+                "                <input type=\"text\" name=\"name\" value=\"%s\">\n" +
+                "            </td>\n" +
+                "            <td>\n" +
+                "                学号\n" +
+                "                <input type=\"text\" name=\"id\"  value=\"%s\">\n" +
+                "            </td>\n" +
+                "        </tr>\n" +
+                "        <tr>\n" +
+                "            <td>\n" +
+                "                <input type=\"button\" style=\"background-color: #4b5e87ad;  color: aliceblue;margin:20px 0 0 86px;\" " +
+                "value=\"修改\" onclick=\"formSubmit(%s ,'修改')\">\n" +
+                "                <input type=\"button\" id=\"222020321072029\" style=\"background-color: #9336369e; " +
+                "color: aliceblue; margin:20px 0 0 30px;\" value=\"删除\" onclick=\"formSubmit(%s ,'删除')\">\n" +
+                "            </td>\n" +
+                "        </tr>\n" +
+                "        <tr>\n" +
+                "            <td>\n" +
+                "                <a class=\"download\" href=\"Download?id=%s\">下载附件</a>" +
                 "            </td>\n" +
                 "        </tr>\n" +
                 "    </table>\n" +

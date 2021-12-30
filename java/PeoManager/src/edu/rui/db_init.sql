@@ -1,7 +1,8 @@
 create table peo
 (
-    id   text not null,
-    name text not null
+    id       text not null,
+    name     text not null,
+    filePath text default null
 );
 create table count
 (

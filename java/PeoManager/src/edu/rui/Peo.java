@@ -3,10 +3,20 @@ package edu.rui;
 public class Peo {
     private String name;
     private String id;
+    private String filPath;
 
-    public Peo(String name, String id) {
+    public String getFilPath() {
+        return filPath;
+    }
+
+    public void setFilPath(String filPath) {
+        this.filPath = filPath;
+    }
+
+    public Peo(String name, String id, String filPath) {
         this.name = name;
         this.id = id;
+        this.filPath = filPath;
     }
 
     public String getName() {

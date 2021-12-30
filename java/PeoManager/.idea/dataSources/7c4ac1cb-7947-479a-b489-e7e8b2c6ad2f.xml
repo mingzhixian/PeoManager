@@ -1314,23 +1314,28 @@
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="481" parent="475" name="type">
+    <column id="481" parent="474" name="filePath">
+      <DataType>text|0s</DataType>
+      <DefaultExpression>null</DefaultExpression>
+      <Position>3</Position>
+    </column>
+    <column id="482" parent="475" name="type">
       <DataType>text|0s</DataType>
       <Position>1</Position>
     </column>
-    <column id="482" parent="475" name="name">
+    <column id="483" parent="475" name="name">
       <DataType>text|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="483" parent="475" name="tbl_name">
+    <column id="484" parent="475" name="tbl_name">
       <DataType>text|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="484" parent="475" name="rootpage">
+    <column id="485" parent="475" name="rootpage">
       <DataType>int|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="485" parent="475" name="sql">
+    <column id="486" parent="475" name="sql">
       <DataType>text|0s</DataType>
       <Position>5</Position>
     </column>

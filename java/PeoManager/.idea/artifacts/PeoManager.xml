@@ -15,6 +15,8 @@
           <element id="file-copy" path="$PROJECT_DIR$/../jars/htmlcompressor-1.5.3.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/../jars/yuicompressor-2.4.8.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/../jars/ibatis-common-2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../jars/commons-fileupload-1.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../jars/commons-io-2.11.0.jar" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="PeoManager/web/Web" />

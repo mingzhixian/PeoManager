@@ -23,11 +23,16 @@ public class Update extends HttpServlet {
 
         String str = String.format(SELECT_TEMPLATE, request.getParameter("id"));
         String str1 = GetHtml.GetHtmlSelect("GetUpdateForm", "");
+        String str2 = GetHtml.GetHtmlSelect("GetUpdateFormAttachment", "");
         try {
             List<Peo> peos = DBtool.all(str);
             String string = null;
             for (Peo peo : peos) {
-                string = String.format(str1, peo.getId(), peo.getName(), peo.getId(), peo.getId(), peo.getId());
+                if (peo.getFilPath() != null) {
+                    string = String.format(str2, peo.getId(), peo.getName(), peo.getId(), peo.getId(), peo.getId(), peo.getId());
+                } else {
+                    string = String.format(str1, peo.getId(), peo.getName(), peo.getId(), peo.getId(), peo.getId());
+                }
             }
             String html = GetHtml.GetHtmlSelect("GetHead", "更改记录") + string + GetHtml.GetHtmlSelect("GetAddEnd", "");
             response.getWriter().write(html);

@@ -89,5 +89,19 @@ input {
     background-color: #181a1b;
     color: aliceblue;
     padding-left: 8px;
-    font-family: awan, sans-serif;
+    border: none;
+}
+
+.download {
+    display: block;
+    margin: 17px 0 0 165px;
+    width: 315px;
+    height: 40px;
+    text-align: center;
+    padding-top: 8px;
+    font-size: 17px;
+    border-radius: 10px;
+    background-color: #566e3ede;
+    color: aliceblue;
+    text-decoration: none;
 }
