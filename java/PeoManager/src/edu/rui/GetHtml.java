@@ -76,8 +76,8 @@ public class GetHtml {
                 "                </tr>\n" +
                 "                <tr>\n" +
                 "                    <td>\n" +
-                "                        <input type=\"file\" name=\"attachment\" style=\"background-color: #566e3ede; color: aliceblue;" +
-                "margin:20px 0 0 86px;\" value=\"附件\">\n" +
+                "                        <input type=\"file\" name=\"attachment\" style=\"background-color: #566e3e00; color: aliceblue;" +
+                "margin:20px 0 0 86px;\">\n" +
                 "                        <input type=\"submit\" style=\"background-color: #4b5e87ad; color: aliceblue;margin:20px 0 0 30px;" +
                 "\"></td>\n" +
                 "                </tr>\n" +
@@ -133,7 +133,7 @@ public class GetHtml {
                 "                    </td>\n" +
                 "                </tr>\n" +
                 "                <tr>\n" +
-                "                    <td><input type=\"submit\" style=\"color: aliceblue;margin:20px 0 0 200px;" +
+                "                    <td><input type=\"submit\" style=\"background-color: #4b5e87ad; color: aliceblue;margin:20px 0 0 200px;" +
                 "\"></td>\n" +
                 "                </tr>\n" +
                 "            </table>\n" +
@@ -195,7 +195,7 @@ public class GetHtml {
                 "                    <td><img id=\"checkcodepic\"  onclick=\"checkcodeupdate()\" src=\"../CheckCodeBack\"/></td>\n" +
                 "                </tr>\n" +
                 "                <tr>\n" +
-                "                    <td><input type=\"submit\" style=\"color: aliceblue;margin:20px 0 0 200px;" +
+                "                    <td><input type=\"submit\" style=\"background-color: #566e3ede; color: aliceblue;margin:20px 0 0 200px;" +
                 "\" value=\"登录或注册\"></td>\n" +
                 "                </tr>\n" +
                 "            </table>\n" +
@@ -206,7 +206,7 @@ public class GetHtml {
         return "<form method=\"post\" action=\"Login\"  class=\"one\">\n" +
                 "            <table>\n" +
                 "                <tr>\n" +
-                "                    <td><input type=\"submit\" style=\"color: aliceblue;margin:20px 0 0 200px;" +
+                "                    <td><input type=\"submit\" style=\"background-color: #9336369e; color: aliceblue;margin:20px 0 0 200px;" +
                 "\" value=\"登出\"></td>\n" +
                 "                </tr>\n" +
                 "            </table>\n" +

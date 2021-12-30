@@ -89,7 +89,7 @@ input {
     background-color: #181a1b;
     color: aliceblue;
     padding-left: 8px;
-    border: 1px;
+    border: none;
 }
 
 .download {
