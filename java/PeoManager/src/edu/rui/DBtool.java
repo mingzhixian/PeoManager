@@ -63,6 +63,16 @@ public class DBtool {
         }
     }
 
+    public static int allEle(String table) throws SQLException, IOException, ClassNotFoundException {
+        int a;
+        try (Connection connection = getconnection()) {
+            try (Statement statement = connection.createStatement()) {
+                a = statement.executeQuery("select count(*) from " + table + ";").getInt(1);
+            }
+        }
+        return a;
+    }
+
     public static List<Peo> all(String sql) throws SQLException {
         List<Peo> peos = new ArrayList<>();
         try (Connection connection = getconnection()) {

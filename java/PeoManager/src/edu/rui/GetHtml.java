@@ -10,7 +10,7 @@ public class GetHtml {
     private static GetHtml movingInvoke = new GetHtml(); // 创建MovingInvokeTest对象
 
     public static String GetHead(String set) {
-        return "<html>\n" +
+        return "<html >\n" +
                 "<head>\n" +
                 "    <meta charset=\"UTF-8\">\n" +
                 "    <title>PeoManager</title>\n" +
@@ -59,6 +59,25 @@ public class GetHtml {
                 "src=\"../resource/js/canvas-nest.js\"></script>" +
                 "</body>\n" +
                 "</html>";
+    }
+
+    public static String GetIndexForm() {
+        return "<div class=\"from one\">\n" +
+                "            <table style=\"text-align: left;margin-left: 12px\">\n" +
+                "                <tr>\n" +
+                "                    <td>人员数据总量</td>\n" +
+                "                    <td style=\"width:400px;text-align: right\">%s</td>\n" +
+                "                </tr>\n" +
+                "                <tr>\n" +
+                "                    <td>注册用户总量</td>\n" +
+                "                    <td style=\"width:400px;text-align: right\">%s</td>\n" +
+                "                </tr>\n" +
+                "                <tr>\n" +
+                "                    <td>当前在线人数</td>\n" +
+                "                    <td style=\"width:400px;text-align: right\">%s</td>\n" +
+                "                </tr>\n" +
+                "            </table>\n" +
+                "        </div>";
     }
 
     public static String GetAddForm() {

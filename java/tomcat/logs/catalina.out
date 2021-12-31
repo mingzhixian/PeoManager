@@ -1,0 +1,58 @@
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+30-Dec-2021 22:07:15.049 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本: Apache Tomcat/8.5.73
+30-Dec-2021 22:07:15.054 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器构建:        Nov 11 2021 13:14:36 UTC
+30-Dec-2021 22:07:15.055 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器版本号:      8.5.73.0
+30-Dec-2021 22:07:15.055 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 操作系统名称:      Linux
+30-Dec-2021 22:07:15.055 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:           5.15.7-1-MANJARO
+30-Dec-2021 22:07:15.056 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 架构:              amd64
+30-Dec-2021 22:07:15.056 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:     /usr/lib/jvm/java-11-openjdk
+30-Dec-2021 22:07:15.056 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java虚拟机版本:    11.0.13+8
+30-Dec-2021 22:07:15.056 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:        Oracle Corporation
+30-Dec-2021 22:07:15.056 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     /home/kic/文档/code/java/tomcat
+30-Dec-2021 22:07:15.056 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     /home/kic/文档/code/java/tomcat
+30-Dec-2021 22:07:15.059 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.lang=ALL-UNNAMED
+30-Dec-2021 22:07:15.059 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.io=ALL-UNNAMED
+30-Dec-2021 22:07:15.059 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.util=ALL-UNNAMED
+30-Dec-2021 22:07:15.060 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+30-Dec-2021 22:07:15.060 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+30-Dec-2021 22:07:15.060 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.config.file=/home/kic/文档/code/java/tomcat/conf/logging.properties
+30-Dec-2021 22:07:15.060 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Dec-2021 22:07:15.060 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djdk.tls.ephemeralDHKeySize=2048
+30-Dec-2021 22:07:15.060 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+30-Dec-2021 22:07:15.060 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+30-Dec-2021 22:07:15.060 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dignore.endorsed.dirs=
+30-Dec-2021 22:07:15.061 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.base=/home/kic/文档/code/java/tomcat
+30-Dec-2021 22:07:15.061 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.home=/home/kic/文档/code/java/tomcat
+30-Dec-2021 22:07:15.061 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.io.tmpdir=/home/kic/文档/code/java/tomcat/temp
+30-Dec-2021 22:07:15.061 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 在java.library.path:[/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib]上找不到基于APR的Apache Tomcat本机库，该库允许在生产环境中获得最佳性能
+30-Dec-2021 22:07:15.102 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-8080"]
+30-Dec-2021 22:07:15.121 信息 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+30-Dec-2021 22:07:15.134 信息 [main] org.apache.catalina.startup.Catalina.load Initialization processed in 556 ms
+30-Dec-2021 22:07:15.210 信息 [main] org.apache.catalina.core.StandardService.startInternal 正在启动服务[Catalina]
+30-Dec-2021 22:07:15.210 信息 [main] org.apache.catalina.core.StandardEngine.startInternal 正在启动 Servlet 引擎：[Apache Tomcat/8.5.73]
+30-Dec-2021 22:07:15.229 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [/home/kic/文档/code/java/tomcat/webapps/PeoManager]
+30-Dec-2021 22:07:15.422 警告 [localhost-startStop-1] org.apache.tomcat.util.descriptor.web.WebXml.setVersion 未知版本字符串 [4.0]。将使用默认版本。
+30-Dec-2021 22:07:15.689 信息 [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+30-Dec-2021 22:07:15.763 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[/home/kic/文档/code/java/tomcat/webapps/PeoManager]的部署已在[531]毫秒内完成
+30-Dec-2021 22:07:15.763 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [/home/kic/文档/code/java/tomcat/webapps/PeoManagerNeo]
+30-Dec-2021 22:07:15.810 警告 [localhost-startStop-1] org.apache.tomcat.util.descriptor.web.WebXml.setVersion 未知版本字符串 [4.0]。将使用默认版本。
+30-Dec-2021 22:07:16.397 信息 [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+30-Dec-2021 22:07:16.420 信息 [localhost-startStop-1] org.springframework.web.context.ContextLoader.initWebApplicationContext Root WebApplicationContext: initialization started
+30-Dec-2021 22:07:16.878 信息 [localhost-startStop-1] org.springframework.web.context.ContextLoader.initWebApplicationContext Root WebApplicationContext initialized in 457 ms
+30-Dec-2021 22:07:16.884 信息 [localhost-startStop-1] org.springframework.web.servlet.DispatcherServlet.initServletBean Initializing Servlet 'dispatcher'
+30-Dec-2021 22:07:17.290 信息 [localhost-startStop-1] org.springframework.web.servlet.DispatcherServlet.initServletBean Completed initialization in 406 ms
+30-Dec-2021 22:07:17.292 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[/home/kic/文档/code/java/tomcat/webapps/PeoManagerNeo]的部署已在[1,529]毫秒内完成
+30-Dec-2021 22:07:17.293 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [/home/kic/文档/code/java/tomcat/webapps/host-manager]
+30-Dec-2021 22:07:17.341 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[/home/kic/文档/code/java/tomcat/webapps/host-manager]的部署已在[48]毫秒内完成
+30-Dec-2021 22:07:17.341 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [/home/kic/文档/code/java/tomcat/webapps/ROOT]
+30-Dec-2021 22:07:17.363 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[/home/kic/文档/code/java/tomcat/webapps/ROOT]的部署已在[22]毫秒内完成
+30-Dec-2021 22:07:17.363 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [/home/kic/文档/code/java/tomcat/webapps/manager]
+30-Dec-2021 22:07:17.386 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[/home/kic/文档/code/java/tomcat/webapps/manager]的部署已在[22]毫秒内完成
+30-Dec-2021 22:07:17.393 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-8080"]
+30-Dec-2021 22:07:17.408 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in 2273 ms
+30-Dec-2021 22:07:44.708 信息 [main] org.apache.catalina.core.StandardServer.await 通过关闭端口接收到有效的关闭命令。正在停止服务器实例。
+30-Dec-2021 22:07:44.709 信息 [main] org.apache.coyote.AbstractProtocol.pause 暂停ProtocolHandler["http-nio-8080"]
+30-Dec-2021 22:07:44.716 信息 [main] org.apache.catalina.core.StandardService.stopInternal 正在停止服务[Catalina]
+30-Dec-2021 22:07:44.749 警告 [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc Web应用程序 [PeoManagerNeo] 注册了JDBC驱动程序 [org.sqlite.JDBC]，但在Web应用程序停止时无法注销它。 为防止内存泄漏，JDBC驱动程序已被强制取消注册。
+30-Dec-2021 22:07:44.783 信息 [main] org.apache.coyote.AbstractProtocol.stop 正在停止ProtocolHandler ["http-nio-8080"]
+30-Dec-2021 22:07:44.791 信息 [main] org.apache.coyote.AbstractProtocol.destroy 正在摧毁协议处理器 ["http-nio-8080"]

@@ -46,7 +46,7 @@ body {
     margin-right: 8px;
 }
 
-form {
+form, .from {
     margin-top: 40px;
     width: 720px;
     margin-left: 140px;
