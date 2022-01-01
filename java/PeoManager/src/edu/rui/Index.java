@@ -16,7 +16,7 @@ public class Index extends HttpServlet {
         try {
             String PeoEle = String.valueOf(DBtool.allEle("peo"));
             String CountEle = String.valueOf(DBtool.allEle("count"));
-            String Online = String.valueOf(DBtool.allEle("peo"));
+            String Online = String.valueOf(SessionListener.getCount());
             str = String.format(str, PeoEle, CountEle, Online);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

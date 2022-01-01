@@ -73,7 +73,7 @@ public class GetHtml {
                 "                    <td style=\"width:400px;text-align: right\">%s</td>\n" +
                 "                </tr>\n" +
                 "                <tr>\n" +
-                "                    <td>当前在线人数</td>\n" +
+                "                    <td>当前访问人数</td>\n" +
                 "                    <td style=\"width:400px;text-align: right\">%s</td>\n" +
                 "                </tr>\n" +
                 "            </table>\n" +
