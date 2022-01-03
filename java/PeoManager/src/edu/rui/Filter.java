@@ -51,9 +51,8 @@ public class Filter implements javax.servlet.Filter {
 
                 //权限检查
                 try {
-                    Count count = DBtool.login("SELECT * FROM count WHERE name = '" +
-                            URLDecoder.decode(logined.getValue(), StandardCharsets.UTF_8) + "';");
-                    if (Objects.equals(request.getRequestURI(), "/PeoManager/web/Add") && count.getAdmin() == 0 || Objects.equals(request.getRequestURI(), "/PeoManager/web/Update") && count.getAdmin() == 0 && request.getMethod().equalsIgnoreCase("post")) {
+                    Count count = DBtool.login("SELECT * FROM count WHERE name = '" + URLDecoder.decode(logined.getValue(), StandardCharsets.UTF_8) + "';").get(0);
+                    if (Objects.equals(request.getRequestURI(), "/PeoManager/web/Add") && count.getAdmin() == 0 || Objects.equals(request.getRequestURI(), "/PeoManager/web/Update") && count.getAdmin() == 0 && request.getMethod().equalsIgnoreCase("post") || Objects.equals(request.getRequestURI(), "/PeoManager/web/Uset") && count.getAdmin() == 0) {
                         response.getWriter().write(GetHtml.GetHtmlSelect("GetHead", "人员管理") + "<h1 style=\"color " +
                                 ":#edeff2a3\">权限不足</h1>" + GetHtml.GetHtmlSelect("GetEnd", ""));
                     } else {

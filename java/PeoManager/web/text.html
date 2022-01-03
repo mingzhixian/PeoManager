@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset=UTF-8>
     <title>PeoManager</title>
@@ -14,22 +13,25 @@
                                                                                   src="resource/img/所有用户.svg">所有记录</a><a
         href=Login class=mod><img width=30px src="resource/img/登录用户.svg">后台登录</a>
     <div id=formmod>
-        <div class="from one">
+        <form class="one">
             <table style="text-align: left;margin-left: 12px">
                 <tr>
                     <td>人员数据总量</td>
-                    <td style="width:400px;text-align: right">2222</td>
+                    <td style="width:400px;text-align: right"><input name="%s" type="checkbox" value="3"></td>
                 </tr>
                 <tr>
                     <td>注册用户总量</td>
-                    <td style="width:400px;text-align: right">111</td>
+                    <td style="width:400px;text-align: right"><input type="checkbox" value="3"></td>
                 </tr>
                 <tr>
-                    <td>当前在线人数</td>
-                    <td style="width:400px;text-align: right">4</td>
+                    <td>当前访问人数</td>
+                    <td style="width:400px;text-align: right"><input type="checkbox" value="3"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit"></td>
                 </tr>
             </table>
-        </div>
+        </form>
     </div>
 </div>
 <script src="resource/js/animation.js" rel=script></script>

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Objects;
 
 import static java.lang.String.valueOf;
@@ -64,15 +65,15 @@ public class Login extends HttpServlet {
             HttpSession session = request.getSession(true);
             if (valueOf(session.getAttribute("CheckCode")).equalsIgnoreCase(request.getParameter("checkcode"))) {
                 try {
-                    Count count = DBtool.login("SELECT * FROM count WHERE name = '" + request.getParameter("name") + "';");
-                    if (count == null) {   //找不到便注册自动新用户
+                    List<Count> counts = DBtool.login("SELECT * FROM count WHERE name = '" + request.getParameter("name") + "';");
+                    if (counts.isEmpty()) {   //找不到便注册自动新用户
                         if (Objects.equals(request.getParameter("name"), "") || Objects.equals(request.getParameter("password"), "")) {
                             back = "<h1 style=\"color:#edeff2a3;\">用户名或密码不应为空。</h1>";
                         } else {
                             DBtool.excute("INSERT INTO count (`name`, `password`) VALUES ('" + request.getParameter("name") + "', '" + request.getParameter("password") + "')");
                             back = "<h1 style=\"color:#edeff2a3;\">账户已注册，请返回登录。</h1>";
                         }
-                    } else if (Objects.equals(count.getPassword(), request.getParameter("password"))) {
+                    } else if (Objects.equals(counts.get(0).getPassword(), request.getParameter("password"))) {
                         back = "<h1 style=\"color:#edeff2a3;\">登录成功</h1>";
                         logined = new Cookie("logined", URLEncoder.encode(request.getParameter("name"), StandardCharsets.UTF_8));
                         logined.setMaxAge(60 * 10);

@@ -13,9 +13,9 @@ import java.util.Objects;
 public class Update extends HttpServlet {
     //删除与修改的数据库语句。
     private static final String UPDATE_TEMPLATE =
-            "UPDATE peo SET name ='%s',id='%s' WHERE id ='%s'";
+            "UPDATE peo SET name ='%s',id='%s' WHERE id ='%s';";
     private static final String DELETE_TEMPLATE =
-            "DELETE FROM peo WHERE id ='%s'";
+            "DELETE FROM peo WHERE id ='%s';";
     private static final String SELECT_TEMPLATE = "SELECT * FROM peo WHERE id='%s';";
 
     @Override

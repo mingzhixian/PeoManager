@@ -63,6 +63,16 @@ public class DBtool {
         }
     }
 
+    public static void excuteBatch(List<String> sqls) throws SQLException, IOException, ClassNotFoundException {
+        try (Connection connection = getconnection()) {
+            try (Statement statement = connection.createStatement()) {
+                for (String sql : sqls) {
+                    statement.execute(sql);
+                }
+            }
+        }
+    }
+
     public static int allEle(String table) throws SQLException, IOException, ClassNotFoundException {
         int a;
         try (Connection connection = getconnection()) {
@@ -89,19 +99,20 @@ public class DBtool {
         return peos;
     }
 
-    public static Count login(String sql) throws SQLException {
-        Count count = null;
+    public static List<Count> login(String sql) throws SQLException {
+        List<Count> counts = new ArrayList<>();
         try (Connection connection = getconnection()) {
             try (Statement statement = connection.createStatement()) {
                 ResultSet one = statement.executeQuery(sql);
                 while (one.next()) {
-                    count = new Count(one.getString("name"), one.getString("password"), one.getInt("admin"));
+                    Count count = new Count(one.getString("name"), one.getString("password"), one.getInt("admin"));
+                    counts.add(count);
                 }
             }
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
-        return count;
+        return counts;
     }
 
     public static boolean ishave(String id) throws SQLException {

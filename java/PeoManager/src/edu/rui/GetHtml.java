@@ -286,6 +286,36 @@ public class GetHtml {
                 "</form>";
     }
 
+    public static String GetUsetFormHead() {
+        return "<form class=\"one\" method=\"post\" action=\"Uset\">\n" +
+                "            <table style=\"text-align: left;margin-left: 12px\">";
+    }
+
+    public static String GetUsetFormBody() {
+        return "<tr>\n" +
+                "                    <td>%s</td>\n" +
+                "                    <td style=\"width:400px;text-align: right\"><input name=\"%s\" " +
+                "type=\"checkbox\" " +
+                "value=\"1\"></td>\n" +
+                "                </tr>";
+    }
+
+    public static String GetUsetFormBodyChecked() {
+        return "<tr>\n" +
+                "                    <td>%s</td>\n" +
+                "                    <td style=\"width:400px;text-align: right\"><input name=\"%s\" " +
+                "type=\"checkbox\" " +
+                "value=\"1\" checked ='checked'></td>\n" +
+                "                </tr>";
+    }
+
+    public static String GetUsetFormEnd() {
+        return "<tr>\n" +
+                "                    <td><input type=\"submit\"></td>\n" +
+                "                </tr></table>\n" +
+                "        </form>";
+    }
+
     public static String GetHtmlSelect(String select, String str) {
         String html = null;
         html = movingInvoke.GetStrMethod(select, str);
