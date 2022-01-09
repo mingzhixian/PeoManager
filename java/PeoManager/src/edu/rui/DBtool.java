@@ -116,12 +116,11 @@ public class DBtool {
     }
 
     public static boolean ishave(String id) throws SQLException {
-        String findstr = "SELECT * FROM peo WHERE id ='" + id + "';";
-        List<Peo> peos = all(findstr);
+        List<Peo> peos = all("SELECT * FROM peo WHERE id ='" + id + "';");
         return !peos.isEmpty();
     }
 
-    public static void SqlInit(Connection connection) throws SQLException, IOException {
+    private static void SqlInit(Connection connection) throws SQLException, IOException {
         // 创建ScriptRunner，用于执行SQL脚本
         ScriptRunner runner = new ScriptRunner(connection, false, false);
         runner.setErrorLogWriter(null);
@@ -130,7 +129,7 @@ public class DBtool {
     }
 
     //用于列出tables，返回List
-    public static List<String> getTables(Connection connection) throws SQLException {
+    private static List<String> getTables(Connection connection) throws SQLException {
         List<String> strings = new ArrayList<>();
         DatabaseMetaData databaseMetaData = connection.getMetaData();
         ResultSet resultSet = databaseMetaData.getTables(null, "public", "%", new String[]{"TABLE"});

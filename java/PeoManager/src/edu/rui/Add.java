@@ -90,7 +90,7 @@ public class Add extends HttpServlet {
 
         String back = "";
         try {
-            if (DBtool.ishave(request.getParameter("id"))) {
+            if (DBtool.ishave(id)) {
                 back = "已有该id，不可重复";
             } else {
                 DBtool.excute(sql);

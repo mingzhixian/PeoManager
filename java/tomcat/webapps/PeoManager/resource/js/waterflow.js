@@ -19,7 +19,7 @@ function IsBottom() {
     var scrollTop = document.body.scrollTop;
     var scrollHeight = document.documentElement.scrollHeight;
     var windowsHeight = window.innerHeight;
-    if (scrollHeight - scrollTop - windowsHeight < 60) {
+    if (scrollHeight - scrollTop - windowsHeight < 80) {
         antishake();
     }
 }
