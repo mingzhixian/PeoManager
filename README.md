@@ -1,6 +1,6 @@
 # study--java程序代码位置：java/PeoManager
 **此处为本人学习所写的代码备份。仅作备份用处。** <br/>
-java程序代码位置：**java/PeoManager** [在线演示地址](http://150.158.81.132/PeoManager) <br/>
+java程序代码位置：**java/PeoManager** [在线演示地址-革命中，暂失效](http://150.158.81.132/PeoManager) <br/>
 **更新详细记录查看更新动态**<br/>
 **因会进行网站更新，所以会出现短时间垮掉的情况，麻烦等两三分钟重新进。**<br/>
 网站为人员管理网站，使用数据库为**sqlite**。<br/>
