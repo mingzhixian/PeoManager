@@ -27,10 +27,18 @@ java程序代码位置：**java/PeoManager** [在线演示地址](http://150.158
 ## docker部署、
 第一步安装docker<br/>
 第二步下载镜像<br/>
-    wget http://150.158.81.132/dockerimgs/PeoManager.tar
+```
+wget http://150.158.81.132/dockerimgs/PeoManager.tar
+```
 第三步加载镜像<br/>
-    docker load --input PeoManager.tar
+```
+docker load --input PeoManager.tar
+```
 第四步run<br/>
-    docker run -d -p 8060:8080 --name peomanager peomanager
+```
+docker run -d -p 8060:8080 --name peomanager peomanager
+```
 第五步检测<br/>
-    防火墙打开8060端口，访问检测是否成功（可在第四步中将8060端口改为自己想要的端口）
+```
+防火墙打开8060端口，访问检测是否成功（可在第四步中将8060端口改为自己想要的端口）
+```
