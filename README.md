@@ -36,7 +36,7 @@ docker load --input PeoManager.tar
 ```
 第四步run<br/>
 ```
-docker run -d -p 8060:8080 --name peomanager peomanager
+docker run -d -p 8060:8080 --name peomanagerd peomanagerd
 ```
 第五步检测<br/>
 ```
