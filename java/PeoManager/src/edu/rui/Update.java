@@ -34,7 +34,7 @@ public class Update extends HttpServlet {
                     string = String.format(str1, peo.getId(), peo.getName(), peo.getId(), peo.getId(), peo.getId());
                 }
             }
-            String html = GetHtml.GetHtmlSelect("GetHead", "更改记录") + string + GetHtml.GetHtmlSelect("GetAddEnd", "");
+            String html = GetHtml.GetHtmlSelect("GetHead", "更改记录") + string + GetHtml.GetHtmlSelect("GetEnd", "");
             response.getWriter().write(html);
         } catch (SQLException e) {
             e.printStackTrace();

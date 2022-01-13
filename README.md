@@ -1,5 +1,5 @@
 # study
-## --java程序代码介绍位置：java/PeoManager
+## --java程序代码介绍--代码位置：java/PeoManager
 **此处为本人学习所写的代码备份。仅作备份用处。** <br/>
 java程序代码位置：**java/PeoManager** [在线演示地址](http://150.158.81.132/PeoManager) <br/>
 **更新详细记录查看更新动态**<br/>
@@ -40,5 +40,6 @@ docker run -d -p 8060:8080 --name peomanagerd peomanagerd
 ```
 第五步检测<br/>
 ```
-防火墙打开8060端口，访问检测是否成功（可在第四步中将8060端口改为自己想要的端口）链接：http://ip:8060/PeoManager
+防火墙打开8060端口，访问检测是否成功（可在第四步中将8060端口改为自己想要的端口）<br/>
+链接：http://ip:8060/PeoManager
 ```

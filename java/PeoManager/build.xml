@@ -138,11 +138,6 @@
   
   <!-- 应用程序服务器库 -->
   
-  <path id="library.tomcat_8.5.73.classpath">
-    <pathelement location="/home/kic/文档/code/java/tomcat/lib/jsp-api.jar"/>
-    <pathelement location="/home/kic/文档/code/java/tomcat/lib/servlet-api.jar"/>
-  </path>
-  
   <!-- Modules -->
   
   
@@ -166,62 +161,31 @@
   
   <path id="peomanager.module.production.classpath">
     <path refid="${module.jdk.classpath.peomanager}"/>
-    <path refid="library.tomcat_8.5.73.classpath"/>
-    <pathelement location="${basedir}/../jars/log4j-1.2.17.jar"/>
-    <pathelement location="${basedir}/../jars/slf4j-api-1.7.2.jar"/>
-    <pathelement location="${basedir}/../jars/sqlite-jdbc-3.36.0.3.jar"/>
-    <pathelement location="${basedir}/../jars/HikariCP-5.0.0.jar"/>
-    <pathelement location="${basedir}/../jars/slf4j-log4j12-1.6.0.jar"/>
-    <pathelement location="${basedir}/../jars/htmlcompressor-1.5.3.jar"/>
-    <pathelement location="${basedir}/../jars/yuicompressor-2.4.8.jar"/>
-    <pathelement location="${basedir}/../jars/ibatis-common-2.jar"/>
-    <pathelement location="${basedir}/../jars/commons-fileupload-1.4.jar"/>
-    <pathelement location="${basedir}/../jars/commons-io-2.11.0.jar"/>
+    <fileset dir="${basedir}/web/WEB-INF/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
   </path>
   
   <path id="peomanager.runtime.production.module.classpath">
     <pathelement location="${peomanager.output.dir}"/>
-    <pathelement location="${basedir}/../jars/log4j-1.2.17.jar"/>
-    <pathelement location="${basedir}/../jars/slf4j-api-1.7.2.jar"/>
-    <pathelement location="${basedir}/../jars/sqlite-jdbc-3.36.0.3.jar"/>
-    <pathelement location="${basedir}/../jars/HikariCP-5.0.0.jar"/>
-    <pathelement location="${basedir}/../jars/slf4j-log4j12-1.6.0.jar"/>
-    <pathelement location="${basedir}/../jars/htmlcompressor-1.5.3.jar"/>
-    <pathelement location="${basedir}/../jars/yuicompressor-2.4.8.jar"/>
-    <pathelement location="${basedir}/../jars/ibatis-common-2.jar"/>
-    <pathelement location="${basedir}/../jars/commons-fileupload-1.4.jar"/>
-    <pathelement location="${basedir}/../jars/commons-io-2.11.0.jar"/>
+    <fileset dir="${basedir}/web/WEB-INF/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
   </path>
   
   <path id="peomanager.module.classpath">
     <path refid="${module.jdk.classpath.peomanager}"/>
     <pathelement location="${peomanager.output.dir}"/>
-    <path refid="library.tomcat_8.5.73.classpath"/>
-    <pathelement location="${basedir}/../jars/log4j-1.2.17.jar"/>
-    <pathelement location="${basedir}/../jars/slf4j-api-1.7.2.jar"/>
-    <pathelement location="${basedir}/../jars/sqlite-jdbc-3.36.0.3.jar"/>
-    <pathelement location="${basedir}/../jars/HikariCP-5.0.0.jar"/>
-    <pathelement location="${basedir}/../jars/slf4j-log4j12-1.6.0.jar"/>
-    <pathelement location="${basedir}/../jars/htmlcompressor-1.5.3.jar"/>
-    <pathelement location="${basedir}/../jars/yuicompressor-2.4.8.jar"/>
-    <pathelement location="${basedir}/../jars/ibatis-common-2.jar"/>
-    <pathelement location="${basedir}/../jars/commons-fileupload-1.4.jar"/>
-    <pathelement location="${basedir}/../jars/commons-io-2.11.0.jar"/>
+    <fileset dir="${basedir}/web/WEB-INF/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
   </path>
   
   <path id="peomanager.runtime.module.classpath">
     <pathelement location="${peomanager.output.dir}"/>
-    <path refid="library.tomcat_8.5.73.classpath"/>
-    <pathelement location="${basedir}/../jars/log4j-1.2.17.jar"/>
-    <pathelement location="${basedir}/../jars/slf4j-api-1.7.2.jar"/>
-    <pathelement location="${basedir}/../jars/sqlite-jdbc-3.36.0.3.jar"/>
-    <pathelement location="${basedir}/../jars/HikariCP-5.0.0.jar"/>
-    <pathelement location="${basedir}/../jars/slf4j-log4j12-1.6.0.jar"/>
-    <pathelement location="${basedir}/../jars/htmlcompressor-1.5.3.jar"/>
-    <pathelement location="${basedir}/../jars/yuicompressor-2.4.8.jar"/>
-    <pathelement location="${basedir}/../jars/ibatis-common-2.jar"/>
-    <pathelement location="${basedir}/../jars/commons-fileupload-1.4.jar"/>
-    <pathelement location="${basedir}/../jars/commons-io-2.11.0.jar"/>
+    <fileset dir="${basedir}/web/WEB-INF/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
   </path>
   
   
@@ -287,16 +251,18 @@
     <mkdir dir="${artifact.temp.output.peomanager}"/>
     <zip destfile="${temp.jar.path.PeoManager.war}">
       <zipfileset dir="${peomanager.output.dir}" prefix="WEB-INF/classes"/>
-      <zipfileset file="${basedir}/../jars/log4j-1.2.17.jar" prefix="WEB-INF/lib"/>
-      <zipfileset file="${basedir}/../jars/slf4j-api-1.7.2.jar" prefix="WEB-INF/lib"/>
-      <zipfileset file="${basedir}/../jars/sqlite-jdbc-3.36.0.3.jar" prefix="WEB-INF/lib"/>
-      <zipfileset file="${basedir}/../jars/HikariCP-5.0.0.jar" prefix="WEB-INF/lib"/>
-      <zipfileset file="${basedir}/../jars/slf4j-log4j12-1.6.0.jar" prefix="WEB-INF/lib"/>
-      <zipfileset file="${basedir}/../jars/htmlcompressor-1.5.3.jar" prefix="WEB-INF/lib"/>
-      <zipfileset file="${basedir}/../jars/yuicompressor-2.4.8.jar" prefix="WEB-INF/lib"/>
-      <zipfileset file="${basedir}/../jars/ibatis-common-2.jar" prefix="WEB-INF/lib"/>
-      <zipfileset file="${basedir}/../jars/commons-fileupload-1.4.jar" prefix="WEB-INF/lib"/>
-      <zipfileset file="${basedir}/../jars/commons-io-2.11.0.jar" prefix="WEB-INF/lib"/>
+      <zipfileset file="${basedir}/web/WEB-INF/lib/jsp-api.jar" prefix="WEB-INF/lib"/>
+      <zipfileset file="${basedir}/web/WEB-INF/lib/servlet-api.jar" prefix="WEB-INF/lib"/>
+      <zipfileset file="${basedir}/web/WEB-INF/lib/log4j-1.2.17.jar" prefix="WEB-INF/lib"/>
+      <zipfileset file="${basedir}/web/WEB-INF/lib/HikariCP-5.0.0.jar" prefix="WEB-INF/lib"/>
+      <zipfileset file="${basedir}/web/WEB-INF/lib/ibatis-common-2.jar" prefix="WEB-INF/lib"/>
+      <zipfileset file="${basedir}/web/WEB-INF/lib/slf4j-api-1.7.2.jar" prefix="WEB-INF/lib"/>
+      <zipfileset file="${basedir}/web/WEB-INF/lib/commons-io-2.11.0.jar" prefix="WEB-INF/lib"/>
+      <zipfileset file="${basedir}/web/WEB-INF/lib/slf4j-log4j12-1.6.0.jar" prefix="WEB-INF/lib"/>
+      <zipfileset file="${basedir}/web/WEB-INF/lib/yuicompressor-2.4.8.jar" prefix="WEB-INF/lib"/>
+      <zipfileset file="${basedir}/web/WEB-INF/lib/htmlcompressor-1.5.3.jar" prefix="WEB-INF/lib"/>
+      <zipfileset file="${basedir}/web/WEB-INF/lib/sqlite-jdbc-3.36.0.3.jar" prefix="WEB-INF/lib"/>
+      <zipfileset file="${basedir}/web/WEB-INF/lib/commons-fileupload-1.4.jar" prefix="WEB-INF/lib"/>
       <zipfileset dir="${basedir}/web"/>
       <zipfileset file="${basedir}/web/WEB-INF/web.xml" prefix="WEB-INF"/>
     </zip>
