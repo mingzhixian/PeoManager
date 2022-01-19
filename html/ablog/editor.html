@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ablog</title>
+	<link rel="shortcut icon" href="resource/img/blogger.svg">
+	<link rel="stylesheet" href="resource/css/main.css">
+	<script src="resource/js/jquery-3.6.0.min.js"></script>
+	<script src="resource/js/showdown.min.js"></script>
+	<script>
+		$('#content').on('keyup', function () {
+            	var text = $("#content").val();
+            	var converter = new showdown.Converter();
+            	var html = converter.makeHtml(text);
+           	 	$('.result').html(html);
+            	$('.result>table').addClass('layui-table');
+       	 	});
+	</script>
+</head>
+
+<body>
+	<div class="layui-row layui-col-space15">
+		<div class="layui-col-md6">
+			<div class="layui-card">
+				<div class="layui-card-header">写文章</div>
+				<div class="layui-card-body">
+					<textarea id="content"></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md6">
+			<div class="layui-card">
+				<div class="layui-card-header">预览</div>
+				<div class="layui-card-body result" id="result">
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="Bottom">
+		<p>Ablog</p>
+		<p>鸣之弦与LJ的博客</p>
+	</div>
+</body>
+
+</html>
