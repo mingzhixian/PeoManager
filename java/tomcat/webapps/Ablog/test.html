@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ablog</title>
+    <link rel="shortcut icon" href="resource/img/blogger.svg">
+    <link rel="stylesheet" href="resource/css/main.css">
+    <link rel="stylesheet" href="resource/css/test.css">
+    <script src="resource/js/jquery-3.6.0.min.js"></script>
+    <script src="resource/js/wangEditor.min.js"></script>
+    <script src="resource/js/showdown.js"></script>
+    <script src="resource/js/get.js"></script>
+    <script src="resource/js/test.js"></script>
+</head>
+
+<body>
+<div class="head">
+    <img id="AblogImg" src="resource/img/Ablog-day.svg" alt="Ablog">
+    <img id="SetImg" src="resource/img/set-day.svg" onclick="DayAndNight()" alt="night">
+    <div class="FloatEnd"></div>
+</div>
+<div class="Body">
+    <div id="article-ti">
+        <p>题目：</p>
+        <textarea id="title" placeholder="标题"></textarea>
+
+        <p>类型：</p>
+        <textarea id="type" placeholder="类型"></textarea>
+        <select id="typeSelect" onChange="typeSelect()"></select>
+
+        <div id="sub" onclick="sub()">提交</div>
+        <div id="del" onclick="del()">删除</div>
+        <div class="FloatEnd"></div>
+    </div>
+    <div id="article">
+        <!--文章-->
+        <div id="toolbar-container" class="toolbar"></div>
+        <div id="text-container" class="text"></div>
+    </div>
+</div>
+<div class="Bottom">
+    <p>Ablog</p>
+    <p>鸣之弦与LJ的博客</p>
+</div>
+</body>
+
+</html>
